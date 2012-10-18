@@ -1,0 +1,1645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<integration-requests>
+  <systems>
+    <system id="LAT" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/fba0473d-821c-4827-90df-62d32a331fa9.aspx">
+      <name>Logged Vehicle Data Analysis Tool</name>
+    </system>
+    <system id="LDE" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/56412e0b-6cef-471a-8032-76dc429a4e85.aspx">
+      <name>Logged Data Evaluation</name>
+    </system>
+    <system id="LVDS" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/6ab382b4-af88-4900-b9ad-90d8ea7f14d6.aspx">
+      <name>Logged Vehicle Data System</name>
+    </system>
+    <system id="TT" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/a7ffdfe7-9053-4b11-82d9-ebdbb1ddd161.aspx">
+      <name>TechTool</name>
+    </system>
+    <system id="NAMS" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/3a5b01cf-5916-4080-bc16-407b89eae360.aspx">
+      <name>New Aftermarket Services</name>
+    </system>
+    <system id="VDA" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/8833e487-7667-4470-a827-0e338bd9b518.aspx">
+      <name>Vehicle Data Administration</name>
+    </system>
+    <system id="PARC" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/ba1de538-3916-417c-abe0-6e84561bcd0d.aspx">
+      <name>Vehicle Data Administration for RT</name>
+    </system>
+    <system id="BALDO" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/3f818a7e-6b30-498c-81c0-587c829f47a7.aspx">
+      <name>Baldo Identity management</name>
+    </system>
+    <system id="CFG" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/1a21b276-0423-4ec1-ac41-34ce631d6b71.aspx">
+      <name>Configurator</name>
+    </system>
+    <system id="CU">
+      <name>Client Update</name>
+    </system>
+    <system id="APCI" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/631d00dc-33de-4c93-83e2-f2dd5b56eaf4.aspx">
+      <name>Application Programmer's Communication Interface for TEA2
+			</name>
+    </system>
+    <system id="RTDT" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/7837971c-bf3e-4a7f-91c6-b2efb9229573.aspx">
+      <name>RT diagnostic tool</name>
+      <incl>
+        <system id="OEM">
+          <name>DiagOEM</name>
+        </system>
+        <system id="WDATA">
+          <name>W-Data</name>
+        </system>
+      </incl>
+    </system>
+    <system id="RTDOC" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/1441b53e-e092-4ff9-8e88-07972d21f20c.aspx">
+      <name>RT After sales documentation</name>
+    </system>
+    <system id="CBR" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/b40e55c9-7463-4127-a170-4638219d27b0.aspx">
+      <name>Case Base Reasoning</name>
+    </system>
+    <system id="RTDMS" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/431d4b49-9daa-4001-a6e1-49b6e2caad50.aspx">
+      <name>Renault Trucks Dealer Management System</name>
+    </system>
+    <system id="DI" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/d651ef50-1b0c-4b9f-abe3-40626bdda077.aspx">
+      <name>Driver Interview</name>
+    </system>
+    <system id="MATRIS" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/069f1f45-d876-4ed7-b4a8-16500a234441.aspx">
+      <name>Machine Tracking Information System</name>
+    </system>
+    <system id="CTK" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/05b8c748-6d0e-41f8-bc24-064603abb797.aspx">
+      <name>Care track</name>
+    </system>
+    <system id="FW">
+      <name>Fuel watch</name>
+    </system>
+    <system id="IBIS" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/3a57c8d9-dc58-4de1-a2a5-6b8efd011af9.aspx">
+      <name>Invoice Basic Information System</name>
+    </system>
+    <system id="NACDB" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/a70f5bc1-8c42-4c0c-a246-68463f2f7e11.aspx">
+      <name>North America Corporate Database</name>
+    </system>
+    <system id="AM" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/172cfe44-f185-4922-95f7-7587cf4ba45d.aspx" status="decommissioned">
+      <name>Analysis Matris</name>
+    </system>
+    <system id="LAM" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/172cfe44-f185-4922-95f7-7587cf4ba45d.aspx" status="decommissioned">
+      <name>Lifted Analysis Matris</name>
+    </system>
+    <system id="LINK" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/86ac4cb6-fe5a-467f-b776-4a4976624d26.aspx">
+      <name>Telematics solution for Volvo Trucks North America</name>
+    </system>
+    <system id="CVSP" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/1e604ea3-78a5-4aae-bf4e-c657a2b3f337.aspx">
+      <name>Central Vehicle Specification Programming</name>
+    </system>
+    <system id="TSP" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/f9280d59-929f-4ae4-970a-54fe63e71171.aspx">
+      <name>Truckspec</name>
+    </system>
+    <system id="VCG">
+      <name>Volvo Communication Gateway</name>
+    </system>
+    <system id="RWT" http="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/480610ba-ca4a-4e4d-b65e-3b641689a5db.aspx">
+      <name>Remote Workshop Tool</name>
+    </system>
+    <system id="RAMS" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/a32c0275-47e1-4039-8f6c-b2f8de659ec0.aspx">
+      <name>Remote After Market Service</name>
+    </system>
+    <system id="UPP">
+      <name>Uptime portal</name>
+    </system>
+    <system id="FIDO">
+      <name>FIDO</name>
+    </system>
+    <system id="CDA">
+      <name>CDA</name>
+    </system>
+    <system id="TEAC" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/41c4b2fe-129d-4357-b630-fdad0bdde86c.asp">
+      <name>Tea Core</name>
+    </system>
+    <system id="VSSS" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/67ae993b-d2d3-4085-bf98-cf06e9fd10d4.asp">
+      <name>Vehice Sub-Set System</name>
+    </system>
+    <system id="EMBLA" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/546f6aea-4373-456d-9278-e2f136093bbd.asp">
+      <name>Embla</name>
+    </system>
+    <system id="SEWS" href="http://qlm.volvo.net/volvogroup/yellowpages/informationsystem/22ceb836-74d0-48f5-985a-f8be46ba3c16.asp">
+      <name>SEWS</name>
+    </system>
+    <system id="SB">
+      <name>Script Builder</name>
+    </system>
+    <system id="FLEET">
+      <name>Dynafleet/Optifleet</name>
+    </system>
+    <system id="TSA">
+      <name>TSA</name>
+    </system>
+  </systems>
+  <entities>
+    <entity id="PSL">
+      <name>Product Session Log</name>
+    </entity>
+    <entity id="PSL4L">
+      <name>Product Session Log for LCV</name>
+    </entity>
+    <entity id="PH">
+      <name>Product History</name>
+    </entity>
+    <entity id="ASAK">
+      <name>Available software accessory kits</name>
+    </entity>
+    <entity id="PD">
+      <name>Product data</name>
+    </entity>
+    <entity id="LOV">
+      <name>Life Of Vehicle data</name>
+    </entity>
+    <entity id="BLI">
+      <name>Baldo Login Information</name>
+    </entity>
+    <entity id="ACPC">
+      <name>Available chargeable parameter configuration</name>
+    </entity>
+    <entity id="TTPU">
+      <name>Techtool Packages/Updates</name>
+    </entity>
+    <entity id="TTS">
+      <name>Techtool status</name>
+    </entity>
+    <entity id="VCI">
+      <name>VCI drivers</name>
+    </entity>
+    <entity id="VCL">
+      <name>Vehicle Communication Layer</name>
+    </entity>
+    <entity id="APCI">
+      <name>Application Programmer's Communication Interface</name>
+    </entity>
+    <entity id="DM">
+      <name>Diagnostic manuals</name>
+    </entity>
+    <entity id="RM">
+      <name>Repair manuals</name>
+    </entity>
+    <entity id="RO">
+      <name>Repair order</name>
+    </entity>
+    <entity id="CA">
+      <name>Customer Adaptation</name>
+    </entity>
+    <entity id="ESW">
+      <name>Reprogramming and configuration file for ECU</name>
+    </entity>
+    <entity id="ESWS">
+      <name>Reprogramming and configuration file for ECU. Status of the ESW
+        in the truck.
+			</name>
+    </entity>
+    <entity id="ESWP">
+      <name>Parameters to be programmed</name>
+    </entity>
+    <entity id="CSCS">
+      <name>Central System Connection Status</name>
+    </entity>
+    <entity id="LCI">
+      <name>List of Chassis IDs</name>
+    </entity>
+    <entity id="LVD">
+      <name>Logged Vehicle Data</name>
+    </entity>
+    <entity id="CI">
+      <name>Customer Information</name>
+    </entity>
+    <entity id="DIAGPC">
+      <name>The PC which is used for diagnostics</name>
+    </entity>
+    <entity id="APCIDB">
+      <name>APCI database patch</name>
+    </entity>
+    <entity id="CPI">
+      <name>Component Information</name>
+    </entity>
+    <entity id="NCT">
+      <name>Node Content</name>
+    </entity>
+    <entity id="VSS">
+      <name>Vehicle Sub Specification</name>
+    </entity>
+    <entity id="APCI_PWD">
+      <name>APCI Password</name>
+    </entity>
+    <entity id="DO">
+      <name>Diagnostic Object</name>
+    </entity>
+    <entity id="CONN_PI">
+      <name>Product information related to connected services</name>
+    </entity>
+    <entity id="TGWR">
+      <name>TGW Report</name>
+    </entity>
+    <entity id="ARQ">
+      <name>Assistance Request</name>
+    </entity>
+    <entity id="FMI">
+      <name>Fleet Management Information</name>
+    </entity>
+    <entity id="ESWD">
+      <name>ESW Data</name>
+    </entity>
+    <entity id="DSK">
+      <name>Data Security Keys</name>
+    </entity>
+    <entity id="SCI">
+      <name>Service contract information</name>
+    </entity>
+  </entities>
+  <integrations>
+    <request id="TARA">
+      <integration id="TARA-1">
+        <description>TechTool needs to be able to save a product session
+          log.
+				</description>
+        <entity>PSL</entity>
+        <requestor>LDE</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="TARA-2">
+        <description>LDE is the master for the product session logs and will
+          publish them to LAT.
+				</description>
+        <entity>PSL</entity>
+        <requestor>LAT</requestor>
+        <source>LDE</source>
+        <owner>LDE</owner>
+      </integration>
+      <integration id="TARA-3">
+        <description>TechTool needs to be able to get a product session log
+          saved for a specific vehicle/product.</description>
+        <entity>PSL</entity>
+        <requestor>TT</requestor>
+        <source>LDE</source>
+        <owner>LDE</owner>
+      </integration>
+      <integration id="TARA-4">
+        <description>TechTool needs to be able to get vehicle/product
+          history for a specific vehicle/product</description>
+        <entity>PH</entity>
+        <requestor>TT</requestor>
+        <source>LDE</source>
+        <owner>LDE</owner>
+      </integration>
+      <integration id="TARA-5">
+        <description>TechTool needs to be able to show available Product
+          upgrades.
+				</description>
+        <entity>ASAK</entity>
+        <requestor>TT</requestor>
+        <source>NAMS</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="TARA-6">
+        <description>TechTool needs to be able to show available Product
+          upgrades.
+				</description>
+        <entity>ASAK</entity>
+        <requestor>NAMS</requestor>
+        <source>CFG</source>
+        <owner>CFG</owner>
+      </integration>
+      <integration id="TARA-8">
+        <description>Fetching VDA data through NAMS to TT.</description>
+        <entity>PD</entity>
+        <requestor>TT</requestor>
+        <source>NAMS</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="TARA-10">
+        <description>To speed up the login process.</description>
+        <entity>BLI</entity>
+        <requestor>TT</requestor>
+        <source>BALDO</source>
+        <owner>BALDO</owner>
+      </integration>
+      <integration id="TARA-12">
+        <description>TechTool needs to be able to show available Product
+          upgrades.
+				</description>
+        <entity>ACPC</entity>
+        <requestor>NAMS</requestor>
+        <source>IBIS</source>
+        <owner>IBIS</owner>
+      </integration>
+      <integration id="TARA-13">
+        <description>TechTool needs to be able to control the download and
+          installation of packages/updates.
+				</description>
+        <entity>TTPU</entity>
+        <requestor>TT</requestor>
+        <source>CU</source>
+        <owner>CU</owner>
+      </integration>
+      <integration id="TARA-14">
+        <description>TechTool needs to be able to show available Product
+          upgrades.
+				</description>
+        <entity>ACPC</entity>
+        <requestor>TT</requestor>
+        <source>NAMS</source>
+        <owner>IBIS</owner>
+      </integration>
+      <integration id="TARA-15">
+        <description>TechTool needs to be able to save logged DTCs.
+				</description>
+        <entity>LVD</entity>
+        <requestor>LDE</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="TARA-16">
+        <description>TechTool needs to be able to save logged DTCs.
+				</description>
+        <entity>LVD</entity>
+        <requestor>LAT</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+    </request>
+    <request id="RTDIAG">
+      <integration id="RTDIAG-1">
+        <description>SIDIS call TechTool Web Service provider to access
+          K61-ediag services thru SSO.
+				</description>
+        <related-integrations>
+          <integration>LCV-1</integration>
+          <integration>LCV-3</integration>
+          <integration>LCV-4</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-2">
+        <description>SIDIS users are identified thru TechTool API to access
+          Baldo Database.
+				</description>
+        <related-integrations>
+          <integration>LCV-5</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-3">
+        <description>SIDIS access to the Baldo Local Database thru TechTool
+          to
+          retrieve information about user.
+				</description>
+        <related-integrations>
+          <integration>LCV-5</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-4">
+        <description>SIDIS call TechTool Web Service</description>
+        <related-integrations>
+          <integration>LCV-6</integration>
+          <integration>LCV-7</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-6">
+        <description>002X drivers are delivered by TechTool and used by
+          SIDIS
+				</description>
+        <entity>VCI</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="RTDIAG-8">
+        <description>SIDIS is using the Network Update software provided by
+          TechTool / if TT2 this will be client update.
+				</description>
+        <entity>TTPU</entity>
+        <requestor>OEM</requestor>
+        <source>CU</source>
+        <owner>CU</owner>
+      </integration>
+      <integration id="RTDIAG-10">
+        <description>Sidis is checking if other applications are using 002x.
+          Will change with TT2
+				</description>
+        <entity>VCL</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="RTDIAG-13">
+        <description>Some Legacy RT Diagnostic Software is accessing APCI
+          Database thru TechTool (Diagnostic Communication).will change with
+          TT2 and APCI+
+        </description>
+        <entity>APCI</entity>
+        <requestor>RTDT</requestor>
+        <source>APCI</source>
+        <owner>APCI</owner>
+      </integration>
+      <integration id="RTDIAG-15">
+        <description>Legacy RT Diagnostic Software is using the Network
+          Update
+          software provided by TechToo/ if TT2 this will be client
+          update.
+				</description>
+        <entity>TTPU</entity>
+        <requestor>RTDT</requestor>
+        <source>CU</source>
+        <owner>CU</owner>
+      </integration>
+      <integration id="RTDIAG-18">
+        <description>002X drivers are delivered by TechTool and used by
+          Optifuel-Infomax Will change with TT2
+				</description>
+        <entity>VCI</entity>
+        <requestor>RTDT</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="RTDIAG-19">
+        <description>Optifuel-Infomax is checks if other application are
+          using
+          002x. Will change with TT2
+				</description>
+        <entity>VCL</entity>
+        <requestor>RTDT</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="RTDIAG-20">
+        <description>SIDIS call TechTool Web Services</description>
+        <related-integrations>
+          <integration>RTDIAG-4</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-21">
+        <description>Sidis is checks if other application are using 002x
+				</description>
+        <related-integrations>
+          <integration>RTDIAG-10</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-22">
+        <description>SIDIS is using the Network Update software provided by
+          TechTool
+				</description>
+        <related-integrations>
+          <integration>RTDIAG-8</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-23">
+        <description>Legacy RT Diagnostic Software is using the Network
+          Update
+          software provided by TechTool
+				</description>
+        <related-integrations>
+          <integration>RTDIAG-15</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-24">
+        <description>Links to Optidoc (RT Web application storing repair
+          manuals) are implemented in Guided Diagnostics
+				</description>
+        <entity>DM</entity>
+        <requestor>TT</requestor>
+        <source>RTDOC</source>
+        <owner>RTDOC</owner>
+      </integration>
+      <integration id="RTDIAG-25">
+        <description>Optidoc repair manuals are displayed in the Tech Tool
+          internal browser.
+				</description>
+        <entity>RM</entity>
+        <requestor>TT</requestor>
+        <source>RTDOC</source>
+        <owner>RTDOC</owner>
+      </integration>
+      <integration id="RTDIAG-26">
+        <description>Bodybuilder Tool will use Product Service methods to
+          enable communication with the TEA2+ vehicle
+				</description>
+        <entity>VCL</entity>
+        <requestor>RTDT</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="RTDIAG-28">
+        <description>Infomax Optifuel Tool will communicate to TEA2+ vehicle
+          using “Product Service” component of TechTool Done “on behalf of
+          INfomax V6”
+        </description>
+        <entity>VCL</entity>
+        <requestor>RTDT</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="RTDIAG-29">
+        <description>Fault Code Viewer (Tech Tool) displays the Diagnostic
+          Manuals
+				</description>
+        <entity>DM</entity>
+        <requestor>TT</requestor>
+        <source>RTDOC</source>
+        <owner>RTDOC</owner>
+      </integration>
+      <integration id="RTDIAG-30">
+        <description>Customer effects entered in Driver Interview are
+          automatically selected in Guided Diagnostic (TT1.12 if possible,
+          mandatory for TT2.00)
+        </description>
+        <entity>PSL</entity>
+        <requestor>TT</requestor>
+        <source>LDE</source>
+        <owner>LDE</owner>
+      </integration>
+      <integration id="RTDIAG-31">
+        <description>Customer effects entered in Driver Interview are
+          automatically transferred to CBR for dealers
+				</description>
+        <entity>PSL</entity>
+        <requestor>CBR</requestor>
+        <source>LDE</source>
+        <owner>LDE</owner>
+      </integration>
+      <integration id="RTDIAG-32">
+        <description>Customer effects entered in Guided Diagnostic are
+          automatically transferred to CBR for dealers
+				</description>
+        <related-integrations>
+          <integration>RTDIAG-31</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-33">
+        <description>Active DTCs read in Guided Diagnostic are automatically
+          transferred to CBR for dealers
+				</description>
+        <related-integrations>
+          <integration>RTDIAG-31</integration>
+        </related-integrations>
+      </integration>
+      <integration id="RTDIAG-34">
+        <description>Customer effects entered in Driver Interview are
+          automatically transferred to RT DMS (possibly any DMS)
+				</description>
+        <entity>PSL</entity>
+        <requestor>RTDMS</requestor>
+        <source>LDE</source>
+        <owner>LDE</owner>
+      </integration>
+      <integration id="RTDIAG-35">
+        <description>RT DMS Repair Order is automatically transferred to
+          Driver Interview
+				</description>
+        <entity>RO</entity>
+        <requestor>DI</requestor>
+        <source>RTDMS</source>
+        <owner>RTDMS</owner>
+      </integration>
+    </request>
+    <request id="MATRIS">
+      <integration id="MATRIS-5">
+        <description>MATRIS requires the User Access Level in order to
+          authorise users against available MATRIS functions.
+				</description>
+        <entity>BLI</entity>
+        <requestor>MATRIS</requestor>
+        <source>TT</source>
+        <owner>BALDO</owner>
+      </integration>
+      <integration id="MATRIS-10">
+        <description>Logged Data must be read from machine in order to be
+          processed by MATRIS and other systems
+				</description>
+        <entity>LVD</entity>
+        <requestor>MATRIS</requestor>
+        <source>APCI</source>
+        <owner>APCI</owner>
+      </integration>
+      <integration id="MATRIS-11">
+        <description>Logged Data must be read from machine in order to be
+          processed by MATRIS and other systems
+				</description>
+        <entity>LVD</entity>
+        <requestor>LAT</requestor>
+        <source>MATRIS</source>
+        <owner>APCI</owner>
+      </integration>
+      <integration id="MATRIS-20">
+        <description>VCE Engineering requires information how machine are
+          used, also for these supervised by CareTrack
+				</description>
+        <entity>LVD</entity>
+        <requestor>MATRIS</requestor>
+        <source>CTK</source>
+        <owner>CTK</owner>
+      </integration>
+      <integration id="MATRIS-21">
+        <description>VCE Engineering requires information how machine are
+          used, also for these supervised by CareTrack
+				</description>
+        <entity>LVD</entity>
+        <requestor>LAT</requestor>
+        <source>CTK</source>
+        <owner>CTK</owner>
+      </integration>
+      <integration id="MATRIS-40">
+        <description>VCE Engineering requires information how machine are
+          used, how they perform in different conditions.
+				</description>
+        <related-integrations>
+          <integration>MATRIS-11</integration>
+        </related-integrations>
+      </integration>
+    </request>
+    <request id="LCV">
+      <integration id="LCV-1">
+        <description>Sending Job Card information to the diagnostic system
+				</description>
+        <entity>PSL4L</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>WDATA</owner>
+      </integration>
+      <integration id="LCV-2">
+        <description>Viewing Job Cards on an internet browser</description>
+        <entity>PSL4L</entity>
+        <requestor>OEM</requestor>
+        <source>WDATA</source>
+        <owner>WDATA</owner>
+      </integration>
+      <integration id="LCV-3">
+        <description>Sending customer adaptation information from the
+          diagnostic platform to the online application
+				</description>
+        <entity>CA</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>WDATA</owner>
+      </integration>
+      <integration id="LCV-4">
+        <description>Getting Reprogramming and Configuration files for an
+          ECU from the online application
+				</description>
+        <entity>ESW</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>WDATA</owner>
+      </integration>
+      <integration id="LCV-5">
+        <description>Getting information regarding the connected user
+				</description>
+        <entity>BLI</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>BALDO</owner>
+      </integration>
+      <integration id="LCV-6">
+        <description>Lock the communication interface to ensure exclusive
+          use. Comm Server will not be used to communicated effectively with
+          the vehicle.
+        </description>
+        <entity>VCL</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="LCV-7">
+        <description>Getting information regarding Volvo Network connection
+				</description>
+        <entity>CSCS</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="LCV-8">
+        <description>Getting vehicle information (vehicle variants)
+				</description>
+        <entity>PD</entity>
+        <requestor>WDATA</requestor>
+        <source>PARC</source>
+        <owner>PARC</owner>
+      </integration>
+      <integration id="LCV-9">
+        <description>Getting the connected user’s profile</description>
+        <entity>BLI</entity>
+        <requestor>WDATA</requestor>
+        <source>BALDO</source>
+        <owner>BALDO</owner>
+      </integration>
+    </request>
+    <request id="LOCK">
+      <integration id="LOCK-1">
+        <description>Request new population group</description>
+        <entity>LCI</entity>
+        <requestor>LDE</requestor>
+        <source>FW</source>
+        <owner>LDE</owner>
+      </integration>
+      <integration id="LOCK-2.1">
+        <description>Receive information (notification of update)
+				</description>
+        <entity>LVD</entity>
+        <requestor>FW</requestor>
+        <source>LDE</source>
+        <owner>LDE</owner>
+      </integration>
+      <integration id="LOCK-2.2">
+        <description>Receive information (notification of update)
+				</description>
+        <entity>PD</entity>
+        <requestor>FW</requestor>
+        <source>LDE</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="LOCK-3.1">
+        <description>Publish calculated logged vehicle data and vehicle
+          configuration data
+				</description>
+        <entity>LVD</entity>
+        <requestor>FW</requestor>
+        <source>LDE</source>
+        <owner>LDE</owner>
+      </integration>
+      <integration id="LOCK-3.2">
+        <description>Publish calculated logged vehicle data and vehicle
+          configuration data
+				</description>
+        <entity>PD</entity>
+        <requestor>FW</requestor>
+        <source>LDE</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="LOCK-4">
+        <description>LDE needs customer info to add to LVD readings for
+          selections of vehicles for analysis purpose.
+				</description>
+        <entity>CI</entity>
+        <requestor>LDE</requestor>
+        <source>NACDB</source>
+        <owner>NACDB</owner>
+      </integration>
+      <integration id="LOCK-5">
+        <description>Lifted AM needs customer info to add to LVD readings
+          for selections of vehicles for analysis purpose.
+				</description>
+        <entity>CI</entity>
+        <requestor>LAM</requestor>
+        <source>NACDB</source>
+        <owner>NACDB</owner>
+      </integration>
+      <integration id="LOCK-6">
+        <description>LDE needs LVD data.</description>
+        <entity>LVD</entity>
+        <requestor>LDE</requestor>
+        <source>LVDS</source>
+        <owner>LVDS</owner>
+      </integration>
+      <integration id="LOCK-7">
+        <description>Lifted AM needs LVD data.</description>
+        <entity>LVD</entity>
+        <requestor>LAM</requestor>
+        <source>LVDS</source>
+        <owner>LVDS</owner>
+      </integration>
+      <integration id="LOCK-8">
+        <description>Lifted AM needs logged vehicle data and machine
+          configuration data for VCE.
+				</description>
+        <entity>LVD</entity>
+        <requestor>LAM</requestor>
+        <source>AM</source>
+        <owner>AM</owner>
+      </integration>
+      <integration id="LOCK-9">
+        <description>LDE needs Volvo Link data</description>
+        <entity>LVD</entity>
+        <requestor>LDE</requestor>
+        <source>LINK</source>
+        <owner>LINK</owner>
+      </integration>
+      <integration id="LOCK-10">
+        <description>Lifted AM needs Volvo Link data</description>
+        <entity>LVD</entity>
+        <requestor>LAM</requestor>
+        <source>LINK</source>
+        <owner>LINK</owner>
+      </integration>
+      <integration id="LOCK-11">
+        <description>LVD needs Volvo Link data</description>
+        <entity>LVD</entity>
+        <requestor>LVDS</requestor>
+        <source>LINK</source>
+        <owner>LINK</owner>
+      </integration>
+      <integration id="LOCK-12">
+        <description>Need to know user authority and user’s organizational
+          belonging.
+				</description>
+        <entity>BLI</entity>
+        <requestor>LAM</requestor>
+        <source>BALDO</source>
+        <owner>BALDO</owner>
+      </integration>
+      <integration id="LOCK-13">
+        <description>LDE needs fault code data</description>
+        <entity>LVD</entity>
+        <requestor>LDE</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+    </request>
+    <request id="LAT">
+      <integration id="LAT-1">
+        <description>LVD Analysis Tool needs fault code data.</description>
+        <entity>LVD</entity>
+        <requestor>LAT</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="LAT-2">
+        <description>LVD Analysis Tool needs fault code data.</description>
+        <entity>LVD</entity>
+        <requestor>LAT</requestor>
+        <source>LINK</source>
+        <owner>LINK</owner>
+      </integration>
+    </request>
+    <request id="BP">
+      <integration id="TARABP-1">
+        <description>TechTool orders and receives ESW packages, sends
+          reports etc. to NAMS.
+				</description>
+        <related-integrations>
+          <integration>TARA-8</integration>
+        </related-integrations>
+      </integration>
+      <integration id="TARABP-2">
+        <description>NAMS orders ESW packages from CVSP.</description>
+        <entity>ESW</entity>
+        <requestor>NAMS</requestor>
+        <source>CVSP</source>
+        <owner>CVSP</owner>
+      </integration>
+      <integration id="TARABP-3">
+        <description>NAMS gets information for a specific chassis ID from
+          VDA. NAMS also needs to update VDA with updated information about
+          the vehicle
+        </description>
+        <entity>PD</entity>
+        <requestor>NAMS</requestor>
+        <source>VDA</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="TARABP-4">
+        <description>TSP sends ESW Product unique data to VDA in order to
+          report the status of the product when it leaves production and
+          enters the aftermarket.
+        </description>
+        <entity>ESWS</entity>
+        <requestor>VDA</requestor>
+        <source>TSP</source>
+        <owner>TSP</owner>
+      </integration>
+      <integration id="TARABP-5">
+        <description>NAMS gets all the needed software information for a
+          specific software operation.
+				</description>
+        <related-integrations>
+          <integration>TARA-6</integration>
+        </related-integrations>
+      </integration>
+      <integration id="TARABP-6">
+        <description>NAMS sends invoice information to IBIS
+				</description>
+        <related-integrations>
+          <integration>TARA-12</integration>
+        </related-integrations>
+      </integration>
+    </request>
+    <request id="NG10">
+      <integration id="NG10_1">
+        <description>SIDIS call TechTool Web Service provider to access
+          K61-ediag services thru SSO.
+				</description>
+        <related-integrations>
+          <integration>LCV-1</integration>
+          <integration>LCV-3</integration>
+          <integration>LCV-4</integration>
+        </related-integrations>
+      </integration>
+      <integration id="NG10_2">
+        <description>SIDIS users are identified thru TechTool API to access
+          Baldo Database.
+				</description>
+        <related-integrations>
+          <integration>LCV-5</integration>
+        </related-integrations>
+      </integration>
+      <integration id="NG10_3">
+        <description>SIDIS access to the Baldo Local Database thru TechTool
+          to retrieve information about user.
+				</description>
+        <related-integrations>
+          <integration>LCV-5</integration>
+        </related-integrations>
+      </integration>
+      <integration id="NG10_4">
+        <description>SIDIS call TechTool Web Service.</description>
+        <related-integrations>
+          <integration>LCV-6</integration>
+          <integration>LCV-7</integration>
+        </related-integrations>
+      </integration>
+      <integration id="NG10_5">
+        <description>Diagnostic Manuals for X62 are installed in TechTool
+          and used by SIDIS.
+				</description>
+        <entity>DM</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="NG10_6">
+        <description>002X drivers are delivered by TechTool and used by
+          SIDIS
+				</description>
+        <related-integrations>
+          <integration>RTDIAG-6</integration>
+        </related-integrations>
+      </integration>
+      <integration id="NG10_7">
+        <description>TechTool middle ware layer is used by SIDIS.
+				</description>
+        <related-integrations>
+          <integration>RTDIAG-10</integration>
+          <integration>RTDIAG-8</integration>
+          <integration>LCV-6</integration>
+          <integration>LCV-5</integration>
+          <integration>LCV-7</integration>
+        </related-integrations>
+      </integration>
+      <integration id="NG10_8">
+        <description>SIDIS is using the Network Update software provided by
+          TechTool
+				</description>
+        <related-integrations>
+          <integration>RTDIAG-8</integration>
+        </related-integrations>
+      </integration>
+      <integration id="NG10_9">
+        <description>Sidis is using a Volvo IT library to generate path to
+          the diagnostic manuals
+				</description>
+        <entity>DM</entity>
+        <requestor>OEM</requestor>
+        <source>RTDT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="NG10_10">
+        <description>Sidis is checks if other application are using 002x
+				</description>
+        <entity>VCL</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="NG10_11">
+        <description>Sidis checks if the hardware is DIagNG10 before
+          installing.
+				</description>
+        <entity>DIAGPC</entity>
+        <requestor>OEM</requestor>
+        <source>RTDT</source>
+        <owner>RTDT</owner>
+      </integration>
+      <integration id="NG10_12">
+        <description>Sidis need Tech Tool to run (checks if available and
+          starts it)
+				</description>
+        <entity>TTS</entity>
+        <requestor>OEM</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="NG10_13">
+        <description>Some Legacy RT Diagnostic Software is accessing APCI
+          Database thru TechTool (Diagnostic Communication).
+				</description>
+        <related-integrations>
+          <integration>RTDIAG-13</integration>
+        </related-integrations>
+      </integration>
+      <integration id="NG10_14">
+        <description>002X drivers are delivered by TechTool and used by
+          Legacy RT Diagnostic Software.
+				</description>
+        <entity>VCI</entity>
+        <requestor>RTDT</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="NG10_15">
+        <description>Legacy RT Diagnostic Software is using the Network
+          Update software provided by TechTool
+				</description>
+        <entity>TTPU</entity>
+        <requestor>RTDT</requestor>
+        <source>CU</source>
+        <owner>CU</owner>
+      </integration>
+      <integration id="NG10_16">
+        <description>TechTool middle ware layer is used by Legacy RT
+          Diagnostic Software
+				</description>
+        <entity>VCL</entity>
+        <requestor>RTDT</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+      <integration id="NG10_17">
+        <description>Diagnostic Manuals for RT legacy products are installed
+          in TechTool and used by Legacy RT Diagnostic Software.
+				</description>
+        <entity>DM</entity>
+        <requestor>RTDT</requestor>
+        <source>TT</source>
+        <owner>TT</owner>
+      </integration>
+    </request>
+    <request id="CONN">
+      <integration id="CONN_1a">
+        <description>Store LOV parameters and fault codes</description>
+        <entity>LOV</entity>
+        <requestor>LDE</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_1b">
+        <description>Store LOV parameters and fault codes</description>
+        <entity>LOV</entity>
+        <requestor>LAT</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_5a">
+        <description>Request Parameter update</description>
+        <entity>ESWP</entity>
+        <requestor>RAMS</requestor>
+        <source>UPP</source>
+        <owner>UPP</owner>
+      </integration>
+      <integration id="CONN_5b">
+        <description>Request Software Download</description>
+        <entity>ESW</entity>
+        <requestor>RAMS</requestor>
+        <source>UPP</source>
+        <owner>UPP</owner>
+      </integration>
+      <integration id="CONN_5c">
+        <description>Request Pre-check for RPS</description>
+        <entity>ESWP</entity>
+        <requestor>RAMS</requestor>
+        <source>UPP</source>
+        <owner>UPP</owner>
+      </integration>
+      <integration id="CONN_5d">
+        <description>Request Pre-check for RSWDL</description>
+        <entity>ESW</entity>
+        <requestor>RAMS</requestor>
+        <source>UPP</source>
+        <owner>UPP</owner>
+      </integration>
+      <integration id="CONN_5e">
+        <description>Request Status Report for RPS</description>
+        <entity>ESWP</entity>
+        <requestor>RAMS</requestor>
+        <source>UPP</source>
+        <owner>UPP</owner>
+      </integration>
+      <integration id="CONN_5f">
+        <description>Request Status Report for RSWDL</description>
+        <entity>ESW</entity>
+        <requestor>RAMS</requestor>
+        <source>UPP</source>
+        <owner>UPP</owner>
+      </integration>
+      <integration id="CONN_5g">
+        <description>Request Recall for RPS</description>
+        <entity>ESWP</entity>
+        <requestor>RAMS</requestor>
+        <source>UPP</source>
+        <owner>UPP</owner>
+      </integration>
+      <integration id="CONN_5h">
+        <description>Request Recall for RSWDL</description>
+        <entity>ESW</entity>
+        <requestor>RAMS</requestor>
+        <source>UPP</source>
+        <owner>UPP</owner>
+      </integration>
+      <integration id="CONN_5i">
+        <description>UpdateStatus for Parameter</description>
+        <entity>ESWP</entity>
+        <requestor>UPP</requestor>
+        <source>RAMS</source>
+        <owner>RAMS</owner>
+      </integration>
+      <integration id="CONN_5j">
+        <description>UpdateStatus for SWDL</description>
+        <entity>ESW</entity>
+        <requestor>UPP</requestor>
+        <source>RAMS</source>
+        <owner>RAMS</owner>
+      </integration>
+      <integration id="CONN_6a">
+        <description>Remote Software Download (request the ESW)</description>
+        <entity>ESW</entity>
+        <requestor>RAMS</requestor>
+        <source>NAMS</source>
+        <owner>CFG</owner>
+      </integration>
+      <integration id="CONN_6b">
+        <description>Remote Software Download (download to FIDO if necessary)</description>
+        <entity>ESW</entity>
+        <requestor>FIDO</requestor>
+        <source>NAMS</source>
+        <owner>RAMS</owner>
+      </integration>
+      <integration id="CONN_6c">
+        <description>Remote Software Download (confirmation of download)</description>
+        <entity>ESW</entity>
+        <requestor>NAMS</requestor>
+        <source>RAMS</source>
+        <owner>RAMS</owner>
+      </integration>
+      <integration id="CONN_7a">
+        <description>Product Configuration </description>
+        <entity>PD</entity>
+        <requestor>RAMS</requestor>
+        <source>NAMS</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="CONN_7b">
+        <description>Product Chargeability</description>
+        <entity>ACPC</entity>
+        <requestor>RAMS</requestor>
+        <source>NAMS</source>
+        <owner>IBIS</owner>
+      </integration>
+      <integration id="CONN_8a">
+        <description>Request Parameter update</description>
+        <entity>ESWP</entity>
+        <requestor>VCG</requestor>
+        <source>RAMS</source>
+        <owner>RAMS</owner>
+      </integration>
+      <integration id="CONN_8b">
+        <description>Request SWDL update</description>
+        <entity>ESW</entity>
+        <requestor>VCG</requestor>
+        <source>RAMS</source>
+        <owner>RAMS</owner>
+      </integration>
+      <integration id="CONN_8c">
+        <description>Request available ESW part numbers </description>
+        <entity>ESW</entity>
+        <requestor>VCG</requestor>
+        <source>RAMS</source>
+        <owner>RAMS</owner>
+      </integration>
+      <integration id="CONN_8d">
+        <description>Request ESW file download </description>
+        <entity>ESW</entity>
+        <requestor>VCG</requestor>
+        <source>RAMS</source>
+        <owner>RAMS</owner>
+      </integration>
+      <integration id="CONN_8e">
+        <description>Request Recall</description>
+        <entity>ESW</entity>
+        <requestor>VCG</requestor>
+        <source>RAMS</source>
+        <owner>RAMS</owner>
+      </integration>
+      <integration id="CONN_8f">
+        <description>StatusUpdate Parameter</description>
+        <entity>ESWP</entity>
+        <requestor>RAMS</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_8g">
+        <description>Status Update SWDL</description>
+        <entity>ESW</entity>
+        <requestor>RAMS</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_9a">
+        <description>Get vehicle info for vehicle by VIN or chassis no and type</description>
+        <entity>PI</entity>
+        <requestor>VCG</requestor>
+        <source>VDA</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="CONN_9b">
+        <description>Get ECU versions for all ECUs in a vehicle</description>
+        <entity>PI</entity>
+        <requestor>VCG</requestor>
+        <source>VDA</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="CONN_9c">
+        <description>Get Dynafleet vehicle info for vehicle by VIN or chassis no and type</description>
+        <entity>PI</entity>
+        <requestor>VCG</requestor>
+        <source>VDA</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="CONN_9d">
+        <description>Vehicle changed notification</description>
+        <entity>PI</entity>
+        <requestor>VCG</requestor>
+        <source>VDA</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="CONN_10a">
+        <description>Get Data Content Script</description>
+        <entity>DO</entity>
+        <requestor>VCG</requestor>
+        <source>SB</source>
+        <owner>SB</owner>
+      </integration>
+      <integration id="CONN_10b">
+        <description>Get Software Download Script</description>
+        <entity>ESW</entity>
+        <requestor>VCG</requestor>
+        <source>SB</source>
+        <owner>SB</owner>
+      </integration>
+      <integration id="CONN_10c">
+        <description>Get Parameter Update Script</description>
+        <entity>ESWP</entity>
+        <requestor>VCG</requestor>
+        <source>SB</source>
+        <owner>SB</owner>
+      </integration>
+      <integration id="CONN_10e">
+        <description>Interpret TGW Report Data</description>
+        <entity>TGWR</entity>
+        <requestor>VCG</requestor>
+        <source>SB</source>
+        <owner>SB</owner>
+      </integration>
+      <integration id="CONN_11a">
+        <description>Perform scripted task</description>
+        <entity>DO</entity>
+        <requestor>VCG</requestor>
+        <source>TGW</source>
+        <owner>TGW</owner>
+      </integration>
+      <integration id="CONN_12">
+        <description>Register and unregister uptime vehicles</description>
+        <entity>CONN_PI</entity>
+        <requestor>UPP</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_13a">
+        <description>Register and unregister vehicle</description>
+        <entity>CONN_PI</entity>
+        <requestor>FLEET</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_13b">
+        <description>Assistance request setup</description>
+        <entity>ARQ</entity>
+        <requestor>FLEET</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_13c">
+        <description>Assistance request Dynafleet/Optifleet will be notified when an assistance request is received from a vehicle.</description>
+        <entity>ARQ</entity>
+        <requestor>FLEET</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_13d">
+        <description>Assistance request read ack Dynafleet/Optifleet will send a read ack for an assistance request when it has been read by someone.
+        </description>
+        <entity>ARQ</entity>
+        <requestor>FLEET</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_13e">
+        <description>Fleet management specific communication</description>
+        <entity>FMI</entity>
+        <requestor>FLEET</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_15">
+        <description></description>
+        <entity>ESWD</entity>
+        <requestor>SB</requestor>
+        <source>NAMS</source>
+        <owner>FIDO</owner>
+      </integration>
+      <integration id="CONN_16">
+        <description></description>
+        <entity>APCIDB</entity>
+        <requestor>SB</requestor>
+        <source>TEAC</source>
+        <owner>TEAC</owner>
+      </integration>
+      <integration id="CONN_18">
+        <description></description>
+        <entity>BLI</entity>
+        <requestor>VCG</requestor>
+        <source>BALDO</source>
+        <owner>BALDO</owner>
+      </integration>
+      <integration id="CONN_19">
+        <description></description>
+        <entity>ESWP</entity>
+        <requestor>UPP</requestor>
+        <source>TEAC</source>
+        <owner>TEAC</owner>
+      </integration>
+      <integration id="CONN_20">
+        <description></description>
+        <entity>BLI</entity>
+        <requestor>UPP</requestor>
+        <source>BALDO</source>
+        <owner>BALDO</owner>
+      </integration>
+      <integration id="CONN_21">
+        <description></description>
+        <entity>ARQ</entity>
+        <requestor>Solidus and GMaps</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_22">
+        <description></description>
+        <entity>DSK</entity>
+        <requestor>SEWS</requestor>
+        <source>SB</source>
+        <owner>SB</owner>
+      </integration>
+      <integration id="CONN_23">
+        <description></description>
+        <entity>BLI</entity>
+        <requestor>RAMS</requestor>
+        <source>BALDO</source>
+        <owner>BALDO</owner>
+      </integration>
+      <integration id="CONN_24">
+        <description></description>
+        <entity>ESWP</entity>
+        <requestor>RAMS</requestor>
+        <source>TEAC</source>
+        <owner>TEAC</owner>
+      </integration>
+      <integration id="CONN_27a-1">
+        <description>Product Configuration</description>
+        <entity>PI</entity>
+        <requestor>NAMS</requestor>
+        <source>VCG</source>
+        <owner>VCG</owner>
+      </integration>
+      <integration id="CONN_27b">
+        <description>Request Conversion Kit execution</description>
+        <entity>ESWP</entity>
+        <requestor>VCG</requestor>
+        <source>NAMS</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="CONN_28">
+        <description>Subscribe to service contract information</description>
+        <entity>SCI</entity>
+        <requestor>VCG</requestor>
+        <source>TSA</source>
+        <owner>TSA</owner>
+      </integration>
+      <integration id="CONN_29">
+        <description></description>
+        <entity>DO</entity>
+        <requestor>SB</requestor>
+        <source>SEWS</source>
+        <owner>SEWS</owner>
+      </integration>
+    </request>
+    <request id="ESW">
+      <integration id="ESW-1">
+        <description>The DtR Tool use the services in APCI+ in order to communicate with the ECU:s in the product (vehicle).</description>
+        <entity>ESWP</entity>
+        <requestor>TT</requestor>
+        <source>APCI</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="ESW-2">
+        <description>When a component has been mounted in a chassis CDA needs to send relevant unique component data to VDA.</description>
+        <entity>CPI</entity>
+        <requestor>CDA</requestor>
+        <source>VDA</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="ESW-3">
+        <description>The DtR Tool use the services in APCI+ in order to communicate with the nodes in the product (vehicle).</description>
+        <entity>ESW</entity>
+        <requestor>TT</requestor>
+        <source>APCI</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="ESW-4a">
+        <description>The DtR Tool orders ESW packages, sends reports etc to NAMS.</description>
+        <entity>ESW</entity>
+        <requestor>TT</requestor>
+        <source>NAMS</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="ESW-4b">
+        <description>The DtR Tool orders ESW packages, sends reports etc to NAMS.</description>
+        <entity>LVD</entity>
+        <requestor>TT</requestor>
+        <source>NAMS</source>
+        <owner>LVDS</owner>
+      </integration>
+      <integration id="ESW-4c">
+        <description>The DtR Tool orders ESW packages, sends reports etc to NAMS.</description>
+        <entity>ESWP</entity>
+        <requestor>TT</requestor>
+        <source>NAMS</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="ESW-4d">
+        <description>The DtR Tool orders ESW packages, sends reports etc to NAMS.</description>
+        <entity>APCIDB</entity>
+        <requestor>TT</requestor>
+        <source>NAMS</source>
+        <owner>APCI</owner>
+      </integration>
+      <integration id="ESW-5">
+        <description>DtR Tool checks if there are any application updates available.</description>
+        <entity>TTPU</entity>
+        <requestor>TT</requestor>
+        <source>CU</source>
+        <owner>CU</owner>
+      </integration>
+      <integration id="ESW-6">
+        <description>NAMS orders ESW packages from CVSP</description>
+        <entity>NCT</entity>
+        <requestor>NAMS</requestor>
+        <source>CVSP</source>
+        <owner>CVSP</owner>
+      </integration>
+      <integration id="ESW-7">
+        <description>NAMS gets supersessions, conversion kits and node dependencies from the Configurator.</description>
+        <entity>PD</entity>
+        <requestor>NAMS</requestor>
+        <source>CFG</source>
+        <owner>CFG</owner>
+      </integration>
+      <integration id="ESW-8">
+        <description>NAMS sends ESW packages, chargeability information etc to DtR Tool.</description>
+        <entity>ESW</entity>
+        <requestor>NAMS</requestor>
+        <source>TT</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="ESW-9">
+        <description>NAMS retrieves commercial part numbers (which includes the cost of the operation) from IBIS .</description>
+        <entity>ACPC</entity>
+        <requestor>NAMS</requestor>
+        <source>IBIS</source>
+        <owner>IBIS</owner>
+      </integration>
+      <integration id="ESW-10">
+        <description>DtR Tool sends logged vehicle data to LVD.</description>
+        <entity>LVD</entity>
+        <requestor>TT</requestor>
+        <source>LVDS</source>
+        <owner>LVDS</owner>
+      </integration>
+      <integration id="ESW-11">
+        <description>DtR needs apci+ db updates from TEA core in order to supply the aftermarket tool clients with apci+ db patches enabling them to support
+          products using new embedded software parts.</description>
+        <entity>APCIDB</entity>
+        <requestor>NAMS</requestor>
+        <source>TEAC</source>
+        <owner>TEAC</owner>
+      </integration>
+      <integration id="ESW-12a">
+        <description>NAMS gets information for a specific chassis ID from VDA. NAMS also needs to update VDA with updated information about the vehicle.
+        </description>
+        <entity>PD</entity>
+        <requestor>NAMS</requestor>
+        <source>VDA</source>
+        <owner>VDA</owner>
+      </integration>
+      <integration id="ESW-12b">
+        <description>NAMS gets information for a specific chassis ID from VDA. NAMS also needs to update VDA with updated information about the vehicle.
+        </description>
+        <entity>ESWP</entity>
+        <requestor>NAMS</requestor>
+        <source>VDA</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="ESW-13">
+        <description>NAMS requests VSS information from VSS.</description>
+        <entity>VSS</entity>
+        <requestor>NAMS</requestor>
+        <source>VSSS</source>
+        <owner>VSSS</owner>
+      </integration>
+      <integration id="ESW-16">
+        <description>TSP sends ESW Product unique data to VDA in order to report the status of the product when it leaves production and enters the aftermarket
+        </description>
+        <entity>ESWP</entity>
+        <requestor>VDA</requestor>
+        <source>TSP</source>
+        <owner>TSP</owner>
+      </integration>
+      <integration id="ESW-33a">
+        <description>TSP sends ESW Product unique data (for a component) to CDA in order to report the status of the product when it leaves production and
+          enters the aftermarket. TSP also send a component conversion information to CDA informing CDA that the component has been mounted in a chassis and it
+          is no longer available as stand alone component.</description>
+        <entity>CPI</entity>
+        <requestor>CDA</requestor>
+        <source>TSP</source>
+        <owner>TSP</owner>
+      </integration>
+      <integration id="ESW-33b">
+        <description>TSP sends ESW Product unique data (for a component) to CDA in order to report the status of the product when it leaves production and
+          enters the aftermarket. TSP also send a component conversion information to CDA informing CDA that the component has been mounted in a chassis and it
+          is no longer available as stand alone component.</description>
+        <entity>ESWP</entity>
+        <requestor>CDA</requestor>
+        <source>TSP</source>
+        <owner>TSP</owner>
+      </integration>
+      <integration id="ESW-17">
+        <description>VDA gets information for a specific component from CDA. VDA also needs to update CDA with updated information about the component.
+        </description>
+        <entity>CPI</entity>
+        <requestor>VDA</requestor>
+        <source>CDA</source>
+        <owner>CDA</owner>
+      </integration>
+      <integration id="ESW-66">
+        <description>VDA+ validate ParameterValue at TeaCore</description>
+        <entity>ESWP</entity>
+        <requestor>VDA</requestor>
+        <source>TEAC</source>
+        <owner>TEAC</owner>
+      </integration>
+      <integration id="ESW-67">
+        <description>NAMS sends the requested software files to AU server, where they are stored using unique unidentifiable file names.</description>
+        <entity>ESW</entity>
+        <requestor>NAMS</requestor>
+        <source>CU</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="ESW-78">
+        <description>SEWS generates a APCI+ db Password for a specific DtR Tool Release Id</description>
+        <entity>APCI_PWD</entity>
+        <requestor>Baldo</requestor>
+        <source>SEWS</source>
+        <owner>SEWS</owner>
+      </integration>
+      <integration id="ESW-79">
+        <description>DtR Tool fetch APCI- db Password</description>
+        <entity>APCI_PWD</entity>
+        <requestor>TT</requestor>
+        <source>BALDO</source>
+        <owner>BALDO</owner>
+      </integration>
+      <integration id="ESW-88">
+        <description>NAMS calls Embla to compile a list of the necessary patches</description>
+        <entity>APCIDB</entity>
+        <requestor>NAMS</requestor>
+        <source>EMBLA</source>
+        <owner>EMBLA</owner>
+      </integration>
+      <integration id="ESW-89">
+        <description>DtR Tool reports that its APCI+ database has been updated</description>
+        <entity>APCIDB</entity>
+        <requestor>TT</requestor>
+        <source>NAMS</source>
+        <owner>NAMS</owner>
+      </integration>
+      <integration id="ESW-90">
+        <description>TT reports that its APCI+ database has been updated</description>
+        <entity>APCIDB</entity>
+        <requestor>TT</requestor>
+        <source>EMBLA</source>
+        <owner>EMBLA</owner>
+      </integration>
+      <integration id="ESW-91">
+        <description>Guided Diagnostic developer fetch Diagnostic Information from SEWS and import it into GradeX(TechTool/DtR Tool)</description>
+        <entity>DO</entity>
+        <requestor>TT</requestor>
+        <source>SEWS</source>
+        <owner>SEWS</owner>
+      </integration>
+    </request>
+  </integrations>
+</integration-requests>
