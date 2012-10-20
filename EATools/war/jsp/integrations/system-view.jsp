@@ -5,7 +5,7 @@
 <%@ page import="java.util.HashMap"%>
 <%@ page import="com.google.appengine.api.datastore.Entity"%>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory"%>
-<%@ page import="net.oisson.b.pierre.helpers.entities.System"%>
+<%@ page import="com.volvo.ea.helpers.entities.System"%>
 <html>
 <head>
 <jsp:include page="../head.jsp" />

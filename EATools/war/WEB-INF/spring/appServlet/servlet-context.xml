@@ -12,7 +12,7 @@
  
     <!-- Scans within the base package of the application for @Components to configure as beans -->
     <!-- @Controller, @Service, @Configuration, etc. -->
-    <context:component-scan base-package="net.oisson.b" />
+    <context:component-scan base-package="com.volvo.ea" />
  
     <!-- Enables the Spring MVC @Controller programming model -->
     <mvc:annotation-driven />

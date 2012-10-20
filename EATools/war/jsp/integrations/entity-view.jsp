@@ -4,7 +4,7 @@
 <%@ page import="java.util.Map"%>
 <%@ page import="java.util.HashMap"%>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory"%>
-<%@ page import="net.oisson.b.pierre.helpers.entities.Entity"%>
+<%@ page import="com.volvo.ea.helpers.entities.Entity"%>
 <html>
 <head>
 <jsp:include page="../head.jsp" />
