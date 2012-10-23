@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="com.volvo.ea.entities.Integration"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.google.appengine.api.datastore.Key"%>
 <%@ page import="java.util.List"%>
@@ -41,18 +42,18 @@
 			</tr>
 		</thead>
 		<%
-			List<Entity> integrations = (List<Entity>) request
+			List<Integration> integrations = (List<Integration>) request
 					.getAttribute("integrationsList");
-			for (Entity e : integrations) {
+			for (Integration e : integrations) {
 		%>
 		<tr>
-			<td><%=e.getProperty("description")%></td>
+			<td><%=e.getDescription()%></td>
 			<%
-				if (e.getProperty("entity") != null) {
+				if (e.getEntity() != null) {
 			%>
 			<td><a
-				href="../entities/update/<%=KeyFactory.keyToString((Key) e
-							.getProperty("entity"))%>"><%=e.getProperty("entity")%></a></td>
+				href="../entities/update/<%=KeyFactory.keyToString(e
+							.getEntity().getKey())%>"><%=e.getEntity().getName()%></a></td>
 			<%
 				} else {
 			%>
@@ -61,11 +62,11 @@
 				}
 			%>
 			<%
-				if (e.getProperty("requestor") != null) {
+				if (e.getRequestor() != null) {
 			%>
 			<td><a
 				href="../systems/update/<%=KeyFactory.keyToString((Key) e
-							.getProperty("requestor"))%>"><%=e.getProperty("requestor")%></a></td>
+							.getRequestor().getKey())%>"><%=e.getRequestor().getName()%></a></td>
 			<%
 				} else {
 			%>
@@ -74,11 +75,11 @@
 				}
 			%>
 			<%
-				if (e.getProperty("source") != null) {
+				if (e.getSource() != null) {
 			%>
 			<td><a
 				href="../systems/update/<%=KeyFactory.keyToString((Key) e
-							.getProperty("source"))%>"><%=e.getProperty("source")%></a></td>
+							.getSource().getKey())%>"><%=e.getSource().getName()%></a></td>
 			<%
 				} else {
 			%>
@@ -87,11 +88,11 @@
 				}
 			%>
 			<%
-				if (e.getProperty("owner") != null) {
+				if (e.getOwner() != null) {
 			%>
 			<td><a
 				href="../systems/update/<%=KeyFactory.keyToString((Key) e
-							.getProperty("owner"))%>"><%=e.getProperty("owner")%></a></td>
+							.getOwner().getKey())%>"><%=e.getOwner().getName()%></a></td>
 			<%
 				} else {
 			%>
@@ -102,7 +103,7 @@
 			<%
 				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 			%>
-			<td><%=formatter.format(e.getProperty("date"))%></td>
+			<td><%=formatter.format(e.getDate())%></td>
 			<td><a href="update/<%=KeyFactory.keyToString(e.getKey())%>">Update</a>
 				| <a href="delete/<%=KeyFactory.keyToString(e.getKey())%>">Delete</a></td>
 		</tr>
@@ -110,9 +111,5 @@
 			}
 		%>
 	</table>
-	<p>
-		<a href="read?cursor=<%=request.getAttribute("cursor")%>">More
-			integrations</a>
-	</p>
 </body>
 </html>

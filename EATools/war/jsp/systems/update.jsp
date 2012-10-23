@@ -1,3 +1,4 @@
+<%@page import="com.volvo.ea.entities.VolvoSystem"%>
 <%@page import="com.google.appengine.api.datastore.KeyFactory"%>
 <%@ page import="com.google.appengine.api.datastore.Entity"%>
 <html>
@@ -11,7 +12,7 @@
 	<h1>Update System</h1>
 
 	<%
-		Entity system = (Entity) request.getAttribute("system");
+	VolvoSystem system = (VolvoSystem) request.getAttribute("system");
 	%>
 
 	<form method="post" action="../update">
@@ -21,9 +22,9 @@
 			name="key">
 		<ul>
 			<li><label for="url">URL:</label><input type="text" name="url"
-				id="url" value="<%=system.getProperty("url")%>" autofocus /></li>
+				id="url" value="<%=system.getUrl()%>" autofocus /></li>
 			<li><label for="name">Name:</label><input type="text"
-				name="name" id="name" value="<%=system.getProperty("name")%>"
+				name="name" id="name" value="<%=system.getName()%>"
 				required /></li>
 		</ul>
 

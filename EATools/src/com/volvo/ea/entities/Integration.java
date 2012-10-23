@@ -1,30 +1,73 @@
-package com.volvo.ea.helpers.entities;
+package com.volvo.ea.entities;
 
 import java.util.Date;
 
-import com.google.appengine.api.datastore.Entity;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
 import com.google.appengine.api.datastore.Key;
 
-public class Integration {
+/**
+ * @author pico
+ * An Integration describes the flow of an information being transfered 
+ * between two applications in the IT landscape.
+ */
+@PersistenceCapable
+public class Integration implements IVolvoEntity {
 
-	private String id;
-	private String description;
-	private Key entity;
-	private Key requestor;
-	private Key source;
-	private Key owner;
-	private Date date;
+	@PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+    private Key key;
+	
 	/**
-	 * @return the id
+	 * The description of the integration as of the integration request document
 	 */
-	public String getId() {
-		return id;
+	@Persistent
+	private String description;
+	@Persistent
+	private Key entity;
+	@Persistent
+	private Key requestor;
+	@Persistent
+	private Key source;
+	@Persistent
+	private Key owner;
+	@Persistent
+	private Date date;
+	
+	/**
+	 * @param key
+	 * @param description
+	 * @param entity
+	 * @param requestor
+	 * @param source
+	 * @param owner
+	 * @param date
+	 */
+	public Integration(Key key, String description, Key entity,
+			Key requestor, Key source, Key owner,
+			Date date) {
+		this.key = key;
+		this.description = description;
+		this.entity = entity;
+		this.requestor = requestor;
+		this.source = source;
+		this.owner = owner;
+		this.date = date;
 	}
 	/**
-	 * @param id the id to set
+	 * @return the key
 	 */
-	public void setId(String id) {
-		this.id = id;
+	public Key getKey() {
+		return key;
+	}
+	/**
+	 * @param key the key to set
+	 */
+	public void setKey(Key key) {
+		this.key = key;
 	}
 	/**
 	 * @return the description
@@ -97,31 +140,6 @@ public class Integration {
 	 */
 	public void setDate(Date date) {
 		this.date = date;
-	}
-	
-	public Integration() {};
-	
-	public Integration(Entity e) {
-		if(e !=null) {
-			if(e.getProperty("description") != null) {
-				this.description = (String) e.getProperty("description");
-			}
-			if(e.getProperty("entity") != null) {
-				this.entity = (Key) e.getProperty("entity");
-			}
-			if(e.getProperty("requestor") != null) {
-				this.requestor = (Key) e.getProperty("requestor");
-			}
-			if(e.getProperty("source") != null) {
-				this.source = (Key) e.getProperty("source");
-			}
-			if(e.getProperty("owner") != null) {
-				this.owner = (Key) e.getProperty("owner");
-			}
-			if(e.getProperty("date") != null) {
-				this.date = (Date) e.getProperty("date");
-			}
-		}
 	}
 	
 }

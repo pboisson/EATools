@@ -4,10 +4,10 @@
 package com.volvo.ea.controllers.impl;
 
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
-
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,16 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.appengine.api.datastore.Cursor;
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.FetchOptions;
+import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.QueryResultList;
 import com.volvo.ea.controllers.CRUDController;
+import com.volvo.ea.dao.VolvoDAO;
+import com.volvo.ea.entities.Integration;
+import com.volvo.ea.entities.VolvoEntity;
+import com.volvo.ea.entities.VolvoSystem;
 
 /**
  * @author pico
@@ -33,23 +30,69 @@ import com.volvo.ea.controllers.CRUDController;
  */
 @Controller
 @RequestMapping("/integrations")
-public class IntegrationsCRUDController implements CRUDController {
+public class IntegrationsCRUDController implements CRUDController<Integration> {
+
+	private VolvoDAO<Integration> volvoDAO;
+	private VolvoDAO<VolvoEntity> volvoEntityDAO;
+	private VolvoDAO<VolvoSystem> volvoSystemDAO;
+
+	/**
+	 * @return the volvoEntityDAO
+	 */
+	public VolvoDAO<VolvoEntity> getVolvoEntityDAO() {
+		return volvoEntityDAO;
+	}
+
+	/**
+	 * @param volvoEntityDAO
+	 *            the volvoEntityDAO to set
+	 */
+	public void setVolvoEntityDAO(VolvoDAO<VolvoEntity> volvoEntityDAO) {
+		this.volvoEntityDAO = volvoEntityDAO;
+	}
+
+	/**
+	 * @return the volvoSystemDAO
+	 */
+	public VolvoDAO<VolvoSystem> getVolvoSystemDAO() {
+		return volvoSystemDAO;
+	}
+
+	/**
+	 * @param volvoSystemDAO
+	 *            the volvoSystemDAO to set
+	 */
+	public void setVolvoSystemDAO(VolvoDAO<VolvoSystem> volvoSystemDAO) {
+		this.volvoSystemDAO = volvoSystemDAO;
+	}
+
+	@Override
+	public VolvoDAO<Integration> getVolvoDAO() {
+		return volvoDAO;
+	}
+
+	@Override
+	public void setVolvoDAO(VolvoDAO<Integration> volvoDAO) {
+		this.volvoDAO = volvoDAO;
+	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * net.oisson.b.pierre.controllers.CRUDController#create(org.springframework
+	 * @see com.volvo.ea.controllers.CRUDController#create(org.springframework
 	 * .ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public ModelAndView create(HttpServletRequest request, ModelMap model) {
 
-		Entity entity = populate(request, null);
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
-		datastore.put(entity);
+		Integration integration = populate(request, null);
+		try {
+			this.volvoDAO.create(integration);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return new ModelAndView("redirect:read");
 	}
@@ -57,82 +100,64 @@ public class IntegrationsCRUDController implements CRUDController {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * net.oisson.b.pierre.controllers.CRUDController#read(org.springframework
+	 * @see com.volvo.ea.controllers.CRUDController#read(org.springframework
 	 * .ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String read(HttpServletRequest request, ModelMap model) {
 
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
-		Query query = new Query("Integration").addSort("date",
-				Query.SortDirection.DESCENDING);
-		
-		FetchOptions fetchOptions = FetchOptions.Builder.withLimit(PAGESIZE);
-		String cursor = request.getParameter("cursor");
-		
-		if(cursor != null) {
-			fetchOptions.startCursor(Cursor.fromWebSafeString(cursor));
+		try {
+			model.addAttribute("integrationsList", this.volvoDAO.list());
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		QueryResultList<Entity> integrations = datastore.prepare(query).asQueryResultList(
-				fetchOptions);
-		
-		cursor = integrations.getCursor().toWebSafeString();
-		model.addAttribute("cursor", cursor);
-		model.addAttribute("integrationsList", integrations);
 		return "integrations/read";
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * net.oisson.b.pierre.controllers.CRUDController#update(java.lang.String,
+	 * @see com.volvo.ea.controllers.CRUDController#update(java.lang.String,
 	 * javax.servlet.http.HttpServletRequest, org.springframework.ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/update/{key}", method = RequestMethod.GET)
 	public String update(@PathVariable String key, HttpServletRequest request,
 			ModelMap model) {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
-		Entity entity;
 		try {
-			entity = datastore.get(KeyFactory.stringToKey(key));
-			model.addAttribute("integration", entity);
-		} catch (EntityNotFoundException e) {
+			Integration integration = volvoDAO.read(KeyFactory
+					.stringToKey(request.getParameter("key")));
+			model.addAttribute("integration", integration);
+			/* get entities to choose for the integration */
+			model.addAttribute("entities", this.volvoEntityDAO.list());
+			/* get systems to choose for the integration */
+			model.addAttribute("systems", this.volvoSystemDAO.list());
+		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		addEntitiesAndSystems(model, datastore);
-
 		return "integrations/update";
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * net.oisson.b.pierre.controllers.CRUDController#update(javax.servlet.http
+	 * @see com.volvo.ea.controllers.CRUDController#update(javax.servlet.http
 	 * .HttpServletRequest, org.springframework.ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView update(HttpServletRequest request, ModelMap model) {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
-
-		Entity entity;
+		Integration integration;
 		try {
-			entity = datastore.get(KeyFactory.stringToKey(request
+			integration = volvoDAO.read(KeyFactory.stringToKey(request
 					.getParameter("key")));
-			entity = populate(request, entity);
+			populate(request, integration);
 
-			datastore.put(entity);
-		} catch (EntityNotFoundException e) {
+			volvoDAO.update(integration);
+		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -144,18 +169,21 @@ public class IntegrationsCRUDController implements CRUDController {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * net.oisson.b.pierre.controllers.CRUDController#delete(java.lang.String,
+	 * @see com.volvo.ea.controllers.CRUDController#delete(java.lang.String,
 	 * javax.servlet.http.HttpServletRequest, org.springframework.ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/delete/{key}", method = RequestMethod.GET)
 	public ModelAndView delete(@PathVariable String key,
 			HttpServletRequest request, ModelMap model) {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
 
-		datastore.delete(KeyFactory.stringToKey(key));
+		try {
+			this.volvoDAO
+					.delete(this.volvoDAO.read(KeyFactory.stringToKey(key)));
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// return to list
 		return new ModelAndView("redirect:../read");
@@ -164,47 +192,49 @@ public class IntegrationsCRUDController implements CRUDController {
 	@Override
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create(ModelMap model) {
-		
-		addEntitiesAndSystems(model, DatastoreServiceFactory
-				.getDatastoreService());
-		
+		try {
+			/* get entities to choose for the integration */
+			model.addAttribute("entities", this.volvoEntityDAO.list());
+			/* get systems to choose for the integration */
+			model.addAttribute("systems", this.volvoSystemDAO.list());
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "integrations/create";
 	}
 
-	/**
-	 * @param model
-	 */
-	private void addEntitiesAndSystems(ModelMap model, DatastoreService datastore) {
-		if(null == datastore)
-			datastore = DatastoreServiceFactory
-				.getDatastoreService();
-		
-		/* get entities to choose for the integration */
-		Query query = new Query("Entity").addSort("name",
-				Query.SortDirection.ASCENDING);
-		List<Entity> entities = datastore.prepare(query).asList(
-				FetchOptions.Builder.withDefaults());
-		model.addAttribute("entities", entities);
-		
-		/* get systems to choose for the integration */
-		query = new Query("System").addSort("name",
-				Query.SortDirection.ASCENDING);
-		List<Entity> systems = datastore.prepare(query).asList(
-				FetchOptions.Builder.withDefaults());
-		model.addAttribute("systems", systems);
+	@Override
+	public Integration populate(HttpServletRequest request,
+			Integration integration) {
+		Key entityKey = KeyFactory.stringToKey(request.getParameter("entity"));
+		Key sourceKey = KeyFactory.stringToKey(request.getParameter("source"));
+		Key ownerKey = KeyFactory.stringToKey(request.getParameter("owner"));
+		Key requestorKey = KeyFactory.stringToKey(request
+				.getParameter("requestor"));
+		if (null == integration || integration.getKey() == null) {
+			try {
+				integration = new Integration(KeyFactory.createKey(
+						"Integration", request.getParameter("id")),
+						request.getParameter("description"), entityKey,
+						requestorKey, sourceKey, ownerKey, new Date());
+			} catch (Throwable e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			integration.setDescription(request.getParameter("description"));
+			try {
+				integration.setEntity(entityKey);
+				integration.setRequestor(requestorKey);
+				integration.setSource(sourceKey);
+				integration.setOwner(ownerKey);
+			} catch (Throwable e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return integration;
 	}
 
-	@Override
-	public Entity populate(HttpServletRequest request, Entity entity) {
-		if (null == entity)
-			entity = new Entity(KeyFactory.createKey("Integration",
-					request.getParameter("id")));
-		entity.setProperty("description", request.getParameter("description"));
-		entity.setProperty("entity", KeyFactory.stringToKey(request.getParameter("entity")));
-		entity.setProperty("requestor", KeyFactory.stringToKey(request.getParameter("requestor")));
-		entity.setProperty("source", KeyFactory.stringToKey(request.getParameter("source")));
-		entity.setProperty("owner", KeyFactory.stringToKey(request.getParameter("owner")));
-		entity.setProperty("date", new Date());
-		return entity;
-	}
 }

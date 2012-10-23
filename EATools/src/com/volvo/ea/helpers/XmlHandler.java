@@ -16,9 +16,9 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.volvo.ea.helpers.entities.Entity;
-import com.volvo.ea.helpers.entities.Integration;
-import com.volvo.ea.helpers.entities.System;
+import com.volvo.ea.entities.VolvoEntity;
+import com.volvo.ea.entities.Integration;
+import com.volvo.ea.entities.VolvoSystem;
 
 /**
  * @author pico
@@ -26,10 +26,10 @@ import com.volvo.ea.helpers.entities.System;
  */
 public class XmlHandler extends DefaultHandler {
 
-	private Stack<Entity> entityStack;
-	private List<Entity> entities;
-	private Stack<System> systemStack;
-	private List<System> systems;
+	private Stack<VolvoEntity> entityStack;
+	private List<VolvoEntity> entities;
+	private Stack<VolvoSystem> systemStack;
+	private List<VolvoSystem> systems;
 	private Stack<Integration> integrationStack;
 	private List<Integration> integrations;
 
@@ -37,10 +37,10 @@ public class XmlHandler extends DefaultHandler {
 
 	public void startDocument() throws SAXException {
 
-		entityStack = new Stack<Entity>();
-		entities = new ArrayList<Entity>();
-		systemStack = new Stack<System>();
-		systems = new ArrayList<System>();
+		entityStack = new Stack<VolvoEntity>();
+		entities = new ArrayList<VolvoEntity>();
+		systemStack = new Stack<VolvoSystem>();
+		systems = new ArrayList<VolvoSystem>();
 		integrationStack = new Stack<Integration>();
 		integrations = new ArrayList<Integration>();
 
@@ -55,7 +55,7 @@ public class XmlHandler extends DefaultHandler {
 
 			if (integrationStack.isEmpty()) {
 
-				Entity entity = new Entity();
+				VolvoEntity entity = new VolvoEntity();
 				entity.setId(attributes.getValue("id"));
 				entityStack.push(entity);
 
@@ -63,7 +63,7 @@ public class XmlHandler extends DefaultHandler {
 
 		} else if (qualifiedName.equals("system")) {
 
-			System system = new System();
+			VolvoSystem system = new VolvoSystem();
 			system.setId(attributes.getValue("id"));
 			system.setUrl(attributes.getValue("href"));
 			systemStack.push(system);
@@ -91,7 +91,7 @@ public class XmlHandler extends DefaultHandler {
 
 			} else if (qualifiedName.equals("name")) {
 
-				Entity entity = entityStack.pop();
+				VolvoEntity entity = entityStack.pop();
 				entity.setName(content.toString());
 				entityStack.push(entity);
 
@@ -105,7 +105,7 @@ public class XmlHandler extends DefaultHandler {
 
 			} else if (qualifiedName.equals("name")) {
 
-				System system = systemStack.pop();
+				VolvoSystem system = systemStack.pop();
 				system.setName(content.toString());
 				systemStack.push(system);
 
@@ -166,7 +166,7 @@ public class XmlHandler extends DefaultHandler {
 	public void endDocument() throws SAXException {
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();
-		for (Entity e : entities) {
+		for (VolvoEntity e : entities) {
 			com.google.appengine.api.datastore.Entity dataEntity = new com.google.appengine.api.datastore.Entity(
 					KeyFactory.createKey("Entity", e.getId()));
 			dataEntity.setProperty("name", e.getName());
@@ -174,7 +174,7 @@ public class XmlHandler extends DefaultHandler {
 			dataEntity.setProperty("date", new Date());
 			datastore.put(dataEntity);
 		}
-		for (System s : systems) {
+		for (VolvoSystem s : systems) {
 			com.google.appengine.api.datastore.Entity dataEntity = new com.google.appengine.api.datastore.Entity(
 					KeyFactory.createKey("System", s.getId()));
 			dataEntity.setProperty("name", s.getName());

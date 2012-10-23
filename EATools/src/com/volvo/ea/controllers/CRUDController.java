@@ -11,15 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.appengine.api.datastore.Entity;
+import com.volvo.ea.dao.VolvoDAO;
+import com.volvo.ea.entities.VolvoSystem;
 
 /**
  * @author pico
  * Typical Controller to create, read, update and delete entities.
  */
-public interface CRUDController {
+public interface CRUDController<T> {
 	
 	public int PAGESIZE = 15;
+	
+	public VolvoDAO<T> getVolvoDAO();
+	
+	public void setVolvoDAO(VolvoDAO<T> volvoDAO);
 
 	/** create */
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -43,7 +48,7 @@ public interface CRUDController {
 	public ModelAndView delete(@PathVariable String key,
 			HttpServletRequest request, ModelMap model);
 	
-	/** populates the object with data from the request */
-	public Entity populate(HttpServletRequest request, Entity entity);
+	/** populate */
+	public T populate(HttpServletRequest pRrequest, T pEntity);
 	
 }

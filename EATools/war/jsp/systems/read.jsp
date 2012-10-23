@@ -1,7 +1,7 @@
 <!DOCTYPE html>
+<%@page import="com.volvo.ea.entities.VolvoSystem"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.google.appengine.api.datastore.Entity"%>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory"%>
 <html>
 <head>
@@ -23,7 +23,6 @@
 			systems are integrated with each other</a>.
 	</p>
 
-	<p><a href="read?cursor=<%=request.getAttribute("cursor")%>">NEXT</a></p>
 	<table>
 		<colgroup>
 			<col width="25%"></col>
@@ -40,17 +39,17 @@
 			</tr>
 		</thead>
 		<%
-			List<Entity> systems = (List<Entity>) request
+			List<VolvoSystem> systems = (List<VolvoSystem>) request
 					.getAttribute("systemsList");
-			for (Entity e : systems) {
+			for (VolvoSystem e : systems) {
 		%>
 		<tr>
-			<td><%=e.getProperty("name")%></td>
-			<td><a href="<%=e.getProperty("url")%>"><%=e.getProperty("url")%></a></td>
+			<td><%=e.getName()%></td>
+			<td><a href="<%=e.getUrl()%>"><%=e.getUrl()%></a></td>
 			<%
 				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 			%>
-			<td><%=formatter.format(e.getProperty("date"))%></td>
+			<td><%=formatter.format(e.getDate())%></td>
 			<td><a href="update/<%=KeyFactory.keyToString(e.getKey())%>">Update</a>
 				| <a href="delete/<%=KeyFactory.keyToString(e.getKey())%>">Delete</a></td>
 		</tr>
@@ -58,6 +57,6 @@
 			}
 		%>
 	</table>
-	<p><a href="read?cursor=<%=request.getAttribute("cursor")%>">NEXT</a></p>
+	
 </body>
 </html>

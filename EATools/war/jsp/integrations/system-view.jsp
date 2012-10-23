@@ -5,7 +5,7 @@
 <%@ page import="java.util.HashMap"%>
 <%@ page import="com.google.appengine.api.datastore.Entity"%>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory"%>
-<%@ page import="com.volvo.ea.helpers.entities.System"%>
+<%@ page import="com.volvo.ea.entities.VolvoSystem"%>
 <html>
 <head>
 <jsp:include page="../head.jsp" />
@@ -39,13 +39,13 @@
 			</tr>
 		</thead>
 		<%
-			Map<Key, System> systems = (HashMap<Key, System>) request
+			Map<Key, VolvoSystem> systems = (HashMap<Key, VolvoSystem>) request
 					.getAttribute("systemsList");
 			if (systems.containsKey(null)) {
 				systems.remove(null);
 			}
 			for (Key k : systems.keySet()) {
-				System s = systems.get(k);
+				VolvoSystem s = systems.get(k);
 				if (s.getCallers() != null && s.getCalling() != null
 						&& s.getCallers().size() > 0
 						&& s.getCalling().size() > 0

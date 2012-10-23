@@ -4,9 +4,9 @@
 package com.volvo.ea.controllers.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,83 +15,98 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.appengine.api.datastore.Cursor;
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.QueryResultList;
 import com.volvo.ea.controllers.CRUDController;
+import com.volvo.ea.dao.VolvoDAO;
+import com.volvo.ea.entities.VolvoSystem;
 
 /**
  * @author pico
- *
+ * 
  */
 @Controller
 @RequestMapping("/systems")
-public class SystemsCRUDController implements CRUDController {
+public class SystemsCRUDController implements CRUDController<VolvoSystem> {
 
-	/* (non-Javadoc)
-	 * @see net.oisson.b.pierre.controllers.CRUDController#create(org.springframework.ui.ModelMap)
+	private VolvoDAO<VolvoSystem> volvoDAO;
+
+	/**
+	 * @return the volvoEntityDAO
+	 */
+	@Override
+	public VolvoDAO<VolvoSystem> getVolvoDAO() {
+		return volvoDAO;
+	}
+
+	/**
+	 * @param volvoEntityDAO
+	 *            the volvoEntityDAO to set
+	 */
+	@Override
+	public void setVolvoDAO(VolvoDAO<VolvoSystem> volvoEntityDAO) {
+		this.volvoDAO = volvoEntityDAO;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.volvo.ea.controllers.CRUDController#create(org.springframework
+	 * .ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public ModelAndView create(HttpServletRequest request, ModelMap model) {
 
-		Entity entity = populate(request, null);
+		VolvoSystem system = populate(request, null);
 
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
-		datastore.put(entity);
+		try {
+			this.volvoDAO.create(system);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return new ModelAndView("redirect:read");
 	}
 
-	/* (non-Javadoc)
-	 * @see net.oisson.b.pierre.controllers.CRUDController#read(org.springframework.ui.ModelMap)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.volvo.ea.controllers.CRUDController#read(org.springframework
+	 * .ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String read(HttpServletRequest request, ModelMap model) {
-		
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
-		Query query = new Query("System").addSort("date",
-				Query.SortDirection.DESCENDING);
-		
-		FetchOptions fetchOptions = FetchOptions.Builder.withLimit(PAGESIZE);
-		String cursor = request.getParameter("cursor");
-		
-		if(cursor != null) {
-			fetchOptions.startCursor(Cursor.fromWebSafeString(cursor));
-		}
-		
-		QueryResultList<Entity> systems = datastore.prepare(query).asQueryResultList(
-				fetchOptions);
 
-		cursor = systems.getCursor().toWebSafeString();
-		model.addAttribute("cursor", cursor);
+		List<VolvoSystem> systems = null;
+		try {
+			systems = this.volvoDAO.list();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		model.addAttribute("systemsList", systems);
 		return "systems/read";
 	}
 
-	/* (non-Javadoc)
-	 * @see net.oisson.b.pierre.controllers.CRUDController#update(java.lang.String, javax.servlet.http.HttpServletRequest, org.springframework.ui.ModelMap)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.volvo.ea.controllers.CRUDController#update(java.lang.String,
+	 * javax.servlet.http.HttpServletRequest, org.springframework.ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/update/{key}", method = RequestMethod.GET)
 	public String update(@PathVariable String key, HttpServletRequest request,
 			ModelMap model) {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
-		Entity entity;
+
+		VolvoSystem system = null;
 		try {
-			entity = datastore.get(KeyFactory.stringToKey(key));
-			model.addAttribute("system", entity);
-		} catch (EntityNotFoundException e) {
+			system = this.volvoDAO.read(KeyFactory.stringToKey(key));
+			model.addAttribute("system", system);
+		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -99,22 +114,23 @@ public class SystemsCRUDController implements CRUDController {
 		return "systems/update";
 	}
 
-	/* (non-Javadoc)
-	 * @see net.oisson.b.pierre.controllers.CRUDController#update(javax.servlet.http.HttpServletRequest, org.springframework.ui.ModelMap)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.volvo.ea.controllers.CRUDController#update(javax.servlet.http
+	 * .HttpServletRequest, org.springframework.ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView update(HttpServletRequest request, ModelMap model) {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
 
-		Entity entity;
+		VolvoSystem system;
 		try {
-			entity = datastore.get(KeyFactory.stringToKey(request.getParameter("key")));
-			entity = populate(request, entity);
-
-			datastore.put(entity);
-		} catch (EntityNotFoundException e) {
+			system = this.volvoDAO.read(KeyFactory.stringToKey(request
+					.getParameter("key")));
+			populate(request, system);
+			this.volvoDAO.update(system);
+		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -123,18 +139,25 @@ public class SystemsCRUDController implements CRUDController {
 		return new ModelAndView("redirect:read");
 	}
 
-	/* (non-Javadoc)
-	 * @see net.oisson.b.pierre.controllers.CRUDController#delete(java.lang.String, javax.servlet.http.HttpServletRequest, org.springframework.ui.ModelMap)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.volvo.ea.controllers.CRUDController#delete(java.lang.String,
+	 * javax.servlet.http.HttpServletRequest, org.springframework.ui.ModelMap)
 	 */
 	@Override
 	@RequestMapping(value = "/delete/{key}", method = RequestMethod.GET)
 	public ModelAndView delete(@PathVariable String key,
 			HttpServletRequest request, ModelMap model) {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
-
 		
-		datastore.delete(KeyFactory.stringToKey(key));
+		VolvoSystem system;
+		try {
+			system = this.volvoDAO.read(KeyFactory.stringToKey(key));
+			this.volvoDAO.delete(system);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// return to list
 		return new ModelAndView("redirect:../read");
@@ -147,14 +170,17 @@ public class SystemsCRUDController implements CRUDController {
 	}
 
 	@Override
-	public Entity populate(HttpServletRequest request, Entity entity) {
-		if (null == entity)
-			entity = new Entity(KeyFactory.createKey("System",
-					request.getParameter("id")));
-		entity.setProperty("name", request.getParameter("name"));
-		entity.setProperty("url", request.getParameter("url"));
-		entity.setProperty("date", new Date());
-		return entity;
+	public VolvoSystem populate(HttpServletRequest request, VolvoSystem pSystem) {
+		if (null == pSystem || pSystem.getKey() == null)
+			pSystem = new VolvoSystem(KeyFactory.createKey(
+					VolvoSystem.class.getSimpleName(),
+					request.getParameter("id")), request.getParameter("name"),
+					request.getParameter("url"), new Date(), null, null, null);
+		else {
+			pSystem.setName(request.getParameter("name"));
+			pSystem.setUrl(request.getParameter("url"));
+		}
+		return pSystem;
 	}
 
 }

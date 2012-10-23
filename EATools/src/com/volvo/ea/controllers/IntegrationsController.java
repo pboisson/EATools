@@ -20,8 +20,8 @@ import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.QueryResultList;
 import com.google.appengine.api.datastore.Key;
-import com.volvo.ea.helpers.entities.Integration;
-import com.volvo.ea.helpers.entities.System;
+import com.volvo.ea.entities.Integration;
+import com.volvo.ea.entities.VolvoSystem;
 
 /**
  * Handles requests for the application home page.
@@ -35,7 +35,7 @@ public class IntegrationsController {
 
 		List<Integration> integrations = getAllIntegrations();
 
-		Map<Key, System> systems = new HashMap<Key, System>();
+		Map<Key, VolvoSystem> systems = new HashMap<Key, VolvoSystem>();
 		/* get the list of systems with integrations */
 		for (Integration integration : integrations) {
 			putRequestor(systems, integration);
@@ -53,7 +53,7 @@ public class IntegrationsController {
 
 		List<Integration> integrations = getAllIntegrations();
 
-		Map<Key, com.volvo.ea.helpers.entities.Entity> entities = new HashMap<Key, com.volvo.ea.helpers.entities.Entity>();
+		Map<Key, com.volvo.ea.entities.VolvoEntity> entities = new HashMap<Key, com.volvo.ea.entities.VolvoEntity>();
 		/* get the list of entities with owners */
 		for (Integration integration : integrations) {
 			putEntityOwner(entities, integration);
@@ -68,10 +68,10 @@ public class IntegrationsController {
 	 * @param systems
 	 * @param integration
 	 */
-	private void putOwner(Map<Key, System> systems, Integration integration) {
+	private void putOwner(Map<Key, VolvoSystem> systems, Integration integration) {
 		/* put the owning information in the map of system */
 		if (systems.containsKey(integration.getOwner())) {
-			System s = systems.get(integration.getOwner());
+			VolvoSystem s = systems.get(integration.getOwner());
 			if (s.getOwns() != null) {
 				if (!s.getOwns().contains(integration.getEntity())) {
 					s.getOwns().add(integration.getEntity());
@@ -82,7 +82,7 @@ public class IntegrationsController {
 			}
 			systems.put(integration.getOwner(), s);
 		} else {
-			System s = new System();
+			VolvoSystem s = new VolvoSystem();
 			if (s.getOwns() != null) {
 				if (!s.getOwns().contains(integration.getEntity())) {
 					s.getOwns().add(integration.getEntity());
@@ -100,11 +100,11 @@ public class IntegrationsController {
 	 * @param integration
 	 */
 	private void putEntityOwner(
-			Map<Key, com.volvo.ea.helpers.entities.Entity> entities,
+			Map<Key, com.volvo.ea.entities.VolvoEntity> entities,
 			Integration integration) {
 		/* put the owning information in the map of system */
 		if (entities.containsKey(integration.getEntity())) {
-			com.volvo.ea.helpers.entities.Entity e = entities
+			com.volvo.ea.entities.VolvoEntity e = entities
 					.get(integration.getEntity());
 			if (e.getOwnedBy() != null) {
 				if (!e.getOwnedBy().contains(integration.getOwner())) {
@@ -116,7 +116,7 @@ public class IntegrationsController {
 			}
 			entities.put(integration.getEntity(), e);
 		} else {
-			com.volvo.ea.helpers.entities.Entity e = new com.volvo.ea.helpers.entities.Entity();
+			com.volvo.ea.entities.VolvoEntity e = new com.volvo.ea.entities.VolvoEntity();
 			if (e.getOwnedBy() != null) {
 				if (!e.getOwnedBy().contains(integration.getOwner())) {
 					e.getOwnedBy().add(integration.getOwner());
@@ -133,10 +133,10 @@ public class IntegrationsController {
 	 * @param systems
 	 * @param integration
 	 */
-	private void putSource(Map<Key, System> systems, Integration integration) {
+	private void putSource(Map<Key, VolvoSystem> systems, Integration integration) {
 		/* put the source information in the map of system */
 		if (systems.containsKey(integration.getSource())) {
-			System s = systems.get(integration.getSource());
+			VolvoSystem s = systems.get(integration.getSource());
 			if (s.getCallers() != null) {
 				if (!s.getCallers().contains(integration.getRequestor())) {
 					s.getCallers().add(integration.getRequestor());
@@ -147,7 +147,7 @@ public class IntegrationsController {
 			}
 			systems.put(integration.getSource(), s);
 		} else {
-			System s = new System();
+			VolvoSystem s = new VolvoSystem();
 			if (s.getCallers() != null) {
 				if (!s.getCallers().contains(integration.getRequestor())) {
 					s.getCallers().add(integration.getRequestor());
@@ -166,9 +166,9 @@ public class IntegrationsController {
 	 * @param systems
 	 * @param integration
 	 */
-	private void putRequestor(Map<Key, System> systems, Integration integration) {
+	private void putRequestor(Map<Key, VolvoSystem> systems, Integration integration) {
 		if (systems.containsKey(integration.getRequestor())) {
-			System s = systems.get(integration.getRequestor());
+			VolvoSystem s = systems.get(integration.getRequestor());
 			if (s.getCalling() != null) {
 				if (!s.getCalling().contains(integration.getSource())) {
 					s.getCalling().add(integration.getSource());
@@ -179,7 +179,7 @@ public class IntegrationsController {
 			}
 			systems.put(integration.getRequestor(), s);
 		} else {
-			System s = new System();
+			VolvoSystem s = new VolvoSystem();
 			if (s.getCalling() != null) {
 				if (!s.getCalling().contains(integration.getSource())) {
 					s.getCalling().add(integration.getSource());

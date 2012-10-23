@@ -4,7 +4,7 @@
 <%@ page import="java.util.Map"%>
 <%@ page import="java.util.HashMap"%>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory"%>
-<%@ page import="com.volvo.ea.helpers.entities.Entity"%>
+<%@ page import="com.volvo.ea.entities.VolvoEntity"%>
 <html>
 <head>
 <jsp:include page="../head.jsp" />
@@ -31,13 +31,13 @@
 			</tr>
 		</thead>
 		<%
-			Map<Key, Entity> entities = (HashMap<Key, Entity>) request
+			Map<Key, VolvoEntity> entities = (HashMap<Key, VolvoEntity>) request
 					.getAttribute("entitiesList");
 			if (entities.containsKey(null)) {
 				entities.remove(null);
 			}
 			for (Key k : entities.keySet()) {
-				Entity e = entities.get(k);
+				VolvoEntity e = entities.get(k);
 				if (e.getOwnedBy() != null && e.getOwnedBy().size() > 1) {
 		%>
 		<tr>
