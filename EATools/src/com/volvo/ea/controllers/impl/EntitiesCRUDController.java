@@ -15,10 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.volvo.ea.controllers.CRUDController;
 import com.volvo.ea.dao.VolvoDAO;
@@ -157,10 +153,13 @@ public class EntitiesCRUDController implements CRUDController<VolvoEntity> {
 	@RequestMapping(value = "/delete/{key}", method = RequestMethod.GET)
 	public ModelAndView delete(@PathVariable String key,
 			HttpServletRequest request, ModelMap model) {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
 
-		datastore.delete(KeyFactory.stringToKey(key));
+		try {
+			this.volvoDAO.delete(KeyFactory.stringToKey(key));
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// return to list
 		return new ModelAndView("redirect:../read");

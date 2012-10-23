@@ -3,7 +3,9 @@
  */
 package tests.com.volvo.ea.crud;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.util.Date;
 
@@ -20,7 +22,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
-import com.volvo.ea.dao.VolvoEntityDAO;
+import com.volvo.ea.dao.impl.VolvoEntityDAOImpl;
 import com.volvo.ea.entities.VolvoEntity;
 
 /**
@@ -58,7 +60,7 @@ public class VolvoEntityCRUDTest {
 	 */
 	@Test
 	public void testCRUD() {
-		VolvoEntityDAO dao = (VolvoEntityDAO) applicationContext
+		VolvoEntityDAOImpl dao = (VolvoEntityDAOImpl) applicationContext
 				.getBean("volvoEntityDao");
 	
 		/* CREATE */
@@ -95,7 +97,7 @@ public class VolvoEntityCRUDTest {
 			VolvoEntity entity = dao.read(this.key);
 			assertNotNull(entity);
 			assertEquals(entity.getName(), "TEST NAME UPDATED");
-			dao.delete(entity);
+			dao.delete(this.key);
 		} catch (Throwable e) {
 			e.printStackTrace();
 			fail("Exception when trying to update a volvo entity");

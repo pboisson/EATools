@@ -22,5 +22,11 @@
 	<bean id="integrationDao" class="com.volvo.ea.dao.impl.IntegrationDAOImpl">
 		<property name="persistenceManagerFactory" ref="pmf" />
 	</bean>
+	
+	<bean id="xmlHandler" class="com.volvo.ea.helpers.XmlHandler">
+		<property name="volvoDAO" ref="integrationDao" />
+		<property name="volvoEntityDAO" ref="volvoEntityDao" />
+		<property name="volvoSystemDAO" ref="volvoSystemDao" />
+	</bean>
 
 </beans>

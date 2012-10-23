@@ -1,3 +1,4 @@
+<%@page import="com.volvo.ea.entities.Integration"%>
 <%@page import="com.volvo.ea.entities.VolvoEntity"%>
 <%@page import="com.volvo.ea.entities.VolvoSystem"%>
 <%@ page import="java.util.List"%>
@@ -14,7 +15,7 @@
 	<h1>Update Integration</h1>
 
 	<%
-		Entity integration = (Entity) request.getAttribute("integration");
+		Integration integration = (Integration) request.getAttribute("integration");
 	%>
 
 	<form method="post" action="../update">
@@ -25,7 +26,7 @@
 		<ul>
 			<li><label for="description">description:</label><input
 				type="text" name="description" id="description"
-				value="<%=integration.getProperty("description")%>" /></li>
+				value="<%=integration.getDescription()%>" /></li>
 			<li><label for="entity">entity:</label> <select id="entity"
 				name="entity">
 					<%
@@ -33,7 +34,7 @@
 								.getAttribute("entities");
 						for (VolvoEntity e : entities) {
 					%>
-					<option value="<%=KeyFactory.keyToString(e.getKey())%>"><%=e.getName()%></option>
+					<option value="<%=KeyFactory.keyToString(e.getKey())%>"><%=e.getKey()%></option>
 					<%
 						}
 					%>
@@ -45,7 +46,7 @@
 								.getAttribute("systems");
 						for (VolvoSystem e : systems) {
 					%>
-					<option value="<%=KeyFactory.keyToString(e.getKey())%>"><%=e.getName()%></option>
+					<option value="<%=KeyFactory.keyToString(e.getKey())%>"><%=e.getKey()%></option>
 					<%
 						}
 					%>
@@ -55,7 +56,7 @@
 					<%
 						for (VolvoSystem e : systems) {
 					%>
-					<option value="<%=KeyFactory.keyToString(e.getKey())%>"><%=e.getName()%></option>
+					<option value="<%=KeyFactory.keyToString(e.getKey())%>"><%=e.getKey()%></option>
 					<%
 						}
 					%>
@@ -65,7 +66,7 @@
 					<%
 						for (VolvoSystem e : systems) {
 					%>
-					<option value="<%=KeyFactory.keyToString(e.getKey())%>"><%=e.getName()%></option>
+					<option value="<%=KeyFactory.keyToString(e.getKey())%>"><%=e.getKey()%></option>
 					<%
 						}
 					%>

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.volvo.ea.dao.VolvoDAO;
-import com.volvo.ea.entities.VolvoSystem;
 
 /**
  * @author pico

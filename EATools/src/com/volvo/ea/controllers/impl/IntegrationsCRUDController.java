@@ -128,7 +128,7 @@ public class IntegrationsCRUDController implements CRUDController<Integration> {
 			ModelMap model) {
 		try {
 			Integration integration = volvoDAO.read(KeyFactory
-					.stringToKey(request.getParameter("key")));
+					.stringToKey(key));
 			model.addAttribute("integration", integration);
 			/* get entities to choose for the integration */
 			model.addAttribute("entities", this.volvoEntityDAO.list());
@@ -179,7 +179,7 @@ public class IntegrationsCRUDController implements CRUDController<Integration> {
 
 		try {
 			this.volvoDAO
-					.delete(this.volvoDAO.read(KeyFactory.stringToKey(key)));
+					.delete(KeyFactory.stringToKey(key));
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

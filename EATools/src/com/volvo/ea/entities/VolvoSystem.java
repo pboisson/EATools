@@ -54,6 +54,11 @@ public class VolvoSystem implements IVolvoEntity {
 		this.calling = calling;
 		this.owns = owns;
 	}
+	
+	public VolvoSystem() {
+		super();
+	}
+	
 	/**
 	 * @return the key
 	 */

@@ -46,10 +46,12 @@
 			}
 			for (Key k : systems.keySet()) {
 				VolvoSystem s = systems.get(k);
-				if (s.getCallers() != null && s.getCalling() != null
+				 
+				if (s.getCallers() != null && s.getCalling() != null 
 						&& s.getCallers().size() > 0
 						&& s.getCalling().size() > 0
-						&& (s.getCallers().size() + s.getCalling().size()) > 5) {
+						&& 
+						(s.getCallers().size() + s.getCalling().size()) > 5) {
 		%>
 		<tr>
 			<td><a href="../systems/update/<%=KeyFactory.keyToString(k)%>"><%=k.toString()%></a></td>

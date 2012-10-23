@@ -8,16 +8,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Stack;
 
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.volvo.ea.entities.VolvoEntity;
+import com.volvo.ea.dao.VolvoDAO;
 import com.volvo.ea.entities.Integration;
+import com.volvo.ea.entities.VolvoEntity;
 import com.volvo.ea.entities.VolvoSystem;
 
 /**
@@ -34,6 +32,48 @@ public class XmlHandler extends DefaultHandler {
 	private List<Integration> integrations;
 
 	private StringBuilder content;
+
+	private VolvoDAO<Integration> volvoDAO;
+	private VolvoDAO<VolvoEntity> volvoEntityDAO;
+	private VolvoDAO<VolvoSystem> volvoSystemDAO;
+
+	/**
+	 * @return the volvoEntityDAO
+	 */
+	public VolvoDAO<VolvoEntity> getVolvoEntityDAO() {
+		return volvoEntityDAO;
+	}
+
+	/**
+	 * @param volvoEntityDAO
+	 *            the volvoEntityDAO to set
+	 */
+	public void setVolvoEntityDAO(VolvoDAO<VolvoEntity> volvoEntityDAO) {
+		this.volvoEntityDAO = volvoEntityDAO;
+	}
+
+	/**
+	 * @return the volvoSystemDAO
+	 */
+	public VolvoDAO<VolvoSystem> getVolvoSystemDAO() {
+		return volvoSystemDAO;
+	}
+
+	/**
+	 * @param volvoSystemDAO
+	 *            the volvoSystemDAO to set
+	 */
+	public void setVolvoSystemDAO(VolvoDAO<VolvoSystem> volvoSystemDAO) {
+		this.volvoSystemDAO = volvoSystemDAO;
+	}
+
+	public VolvoDAO<Integration> getVolvoDAO() {
+		return volvoDAO;
+	}
+
+	public void setVolvoDAO(VolvoDAO<Integration> volvoDAO) {
+		this.volvoDAO = volvoDAO;
+	}
 
 	public void startDocument() throws SAXException {
 
@@ -56,7 +96,9 @@ public class XmlHandler extends DefaultHandler {
 			if (integrationStack.isEmpty()) {
 
 				VolvoEntity entity = new VolvoEntity();
-				entity.setId(attributes.getValue("id"));
+				entity.setKey(KeyFactory.createKey(
+						VolvoEntity.class.getSimpleName(),
+						attributes.getValue("id")));
 				entityStack.push(entity);
 
 			}
@@ -64,7 +106,9 @@ public class XmlHandler extends DefaultHandler {
 		} else if (qualifiedName.equals("system")) {
 
 			VolvoSystem system = new VolvoSystem();
-			system.setId(attributes.getValue("id"));
+			system.setKey(KeyFactory.createKey(
+					VolvoSystem.class.getSimpleName(),
+					attributes.getValue("id")));
 			system.setUrl(attributes.getValue("href"));
 			systemStack.push(system);
 
@@ -72,7 +116,9 @@ public class XmlHandler extends DefaultHandler {
 
 			if (integrationStack.isEmpty() && null != attributes.getValue("id")) {
 				Integration integration = new Integration();
-				integration.setId(attributes.getValue("id"));
+				integration.setKey(KeyFactory.createKey(
+						Integration.class.getSimpleName(),
+						attributes.getValue("id")));
 				integrationStack.push(integration);
 			}
 
@@ -164,36 +210,32 @@ public class XmlHandler extends DefaultHandler {
 	}
 
 	public void endDocument() throws SAXException {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
 		for (VolvoEntity e : entities) {
-			com.google.appengine.api.datastore.Entity dataEntity = new com.google.appengine.api.datastore.Entity(
-					KeyFactory.createKey("Entity", e.getId()));
-			dataEntity.setProperty("name", e.getName());
-			java.lang.System.out.println("recorded entity: " + e.getName());
-			dataEntity.setProperty("date", new Date());
-			datastore.put(dataEntity);
+			e.setDate(new Date());
+			try {
+				volvoEntityDAO.create(e);
+			} catch (Throwable e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		for (VolvoSystem s : systems) {
-			com.google.appengine.api.datastore.Entity dataEntity = new com.google.appengine.api.datastore.Entity(
-					KeyFactory.createKey("System", s.getId()));
-			dataEntity.setProperty("name", s.getName());
-			java.lang.System.out.println("recorded system: " + s.getName());
-			dataEntity.setProperty("url", s.getUrl());
-			dataEntity.setProperty("date", new Date());
-			datastore.put(dataEntity);
+			s.setDate(new Date());
+			try {
+				volvoSystemDAO.create(s);
+			} catch (Throwable e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		for (Integration i : integrations) {
-			com.google.appengine.api.datastore.Entity dataEntity = new com.google.appengine.api.datastore.Entity(
-					KeyFactory.createKey("Integration", i.getId()));
-			dataEntity.setProperty("description", i.getDescription());
-			java.lang.System.out.println("recorded integration: " + i.getId());
-			dataEntity.setProperty("entity", i.getEntity());
-			dataEntity.setProperty("requestor", i.getRequestor());
-			dataEntity.setProperty("source", i.getSource());
-			dataEntity.setProperty("owner", i.getOwner());
-			dataEntity.setProperty("date", new Date());
-			datastore.put(dataEntity);
+			i.setDate(new Date());
+			try {
+				volvoDAO.create(i);
+			} catch (Throwable e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}
 

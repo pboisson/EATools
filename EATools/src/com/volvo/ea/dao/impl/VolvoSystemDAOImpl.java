@@ -11,6 +11,7 @@ import javax.jdo.Query;
 
 import com.google.appengine.api.datastore.Key;
 import com.volvo.ea.dao.VolvoDAO;
+import com.volvo.ea.entities.VolvoEntity;
 import com.volvo.ea.entities.VolvoSystem;
 
 /**
@@ -125,12 +126,13 @@ public class VolvoSystemDAOImpl implements VolvoDAO<VolvoSystem> {
 	 * @see com.volvo.ea.dao.VolvoDAO#delete(com.volvo.ea.entities.VolvoSystem)
 	 */
 	@Override
-	public void delete(VolvoSystem pSystem) throws Throwable {
+	public void delete(Key pKey) throws Throwable {
 		if(this.pmf != null) {
-			if(pSystem != null) {
+			if(pKey != null) {
 				PersistenceManager pm = this.pmf.getPersistenceManager();
 				try {
-					pm.deletePersistent(pSystem);
+					VolvoSystem system = pm.getObjectById(VolvoSystem.class, pKey);
+					pm.deletePersistent(system);
 		        } finally {
 		            pm.close();
 		        }

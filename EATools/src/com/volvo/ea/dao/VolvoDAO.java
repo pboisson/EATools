@@ -37,11 +37,11 @@ public interface VolvoDAO<T> {
 	void update(T pEntity) throws Throwable;
 	
 	/**
-	 * Deletes an existing VolvoEntity in the persistence system
-	 * @param pEntity
+	 * Deletes an existing VolvoEntity in the persistence system from its key
+	 * @param pKey
 	 * @throws Throwable 
 	 */
-	void delete(T pEntity) throws Throwable;
+	void delete(Key pKey) throws Throwable;
 	
 	/**
 	 * Finds all VolvoEntity objects in the persistence system

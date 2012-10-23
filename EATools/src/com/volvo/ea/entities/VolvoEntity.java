@@ -44,6 +44,10 @@ public class VolvoEntity implements IVolvoEntity {
 		this.ownedBy = ownedBy;
 	}
 
+	public VolvoEntity() {
+		super();
+	}
+
 	public String getName() {
 		return name;
 	}

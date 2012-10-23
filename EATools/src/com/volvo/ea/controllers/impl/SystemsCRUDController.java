@@ -152,8 +152,7 @@ public class SystemsCRUDController implements CRUDController<VolvoSystem> {
 		
 		VolvoSystem system;
 		try {
-			system = this.volvoDAO.read(KeyFactory.stringToKey(key));
-			this.volvoDAO.delete(system);
+			this.volvoDAO.delete(KeyFactory.stringToKey(key));
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

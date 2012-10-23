@@ -57,6 +57,11 @@ public class Integration implements IVolvoEntity {
 		this.owner = owner;
 		this.date = date;
 	}
+	
+	public Integration() {
+		super();
+	}
+	
 	/**
 	 * @return the key
 	 */

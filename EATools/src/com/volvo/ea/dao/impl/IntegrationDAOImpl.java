@@ -125,12 +125,13 @@ public class IntegrationDAOImpl implements VolvoDAO<Integration> {
 	 * @see com.volvo.ea.dao.VolvoDAO#delete(com.volvo.ea.entities.Integration)
 	 */
 	@Override
-	public void delete(Integration pIntegration) throws Throwable {
+	public void delete(Key pKey) throws Throwable {
 		if(this.pmf != null) {
-			if(pIntegration != null) {
+			if(pKey != null) {
 				PersistenceManager pm = this.pmf.getPersistenceManager();
 				try {
-					pm.deletePersistent(pIntegration);
+					Integration integration = pm.getObjectById(Integration.class, pKey);
+					pm.deletePersistent(integration);
 		        } finally {
 		            pm.close();
 		        }

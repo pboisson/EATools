@@ -53,7 +53,7 @@
 			%>
 			<td><a
 				href="../entities/update/<%=KeyFactory.keyToString(e
-							.getEntity().getKey())%>"><%=e.getEntity().getName()%></a></td>
+							.getEntity())%>"><%=e.getEntity()%></a></td>
 			<%
 				} else {
 			%>
@@ -66,7 +66,7 @@
 			%>
 			<td><a
 				href="../systems/update/<%=KeyFactory.keyToString((Key) e
-							.getRequestor().getKey())%>"><%=e.getRequestor().getName()%></a></td>
+							.getRequestor())%>"><%=e.getRequestor()%></a></td>
 			<%
 				} else {
 			%>
@@ -79,7 +79,7 @@
 			%>
 			<td><a
 				href="../systems/update/<%=KeyFactory.keyToString((Key) e
-							.getSource().getKey())%>"><%=e.getSource().getName()%></a></td>
+							.getSource())%>"><%=e.getSource()%></a></td>
 			<%
 				} else {
 			%>
@@ -92,7 +92,7 @@
 			%>
 			<td><a
 				href="../systems/update/<%=KeyFactory.keyToString((Key) e
-							.getOwner().getKey())%>"><%=e.getOwner().getName()%></a></td>
+							.getOwner())%>"><%=e.getOwner()%></a></td>
 			<%
 				} else {
 			%>

@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,14 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
 import org.xml.sax.InputSource;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.volvo.ea.helpers.XmlHandler;
-
 /**
  * Handles requests for the application home page.
  */
 @Controller
 @RequestMapping("/importer")
 public class ImportController {
+	
+	private DefaultHandler handler;
 
 	@RequestMapping(value = "/xml", method = RequestMethod.POST)
 	public ModelAndView importer(HttpServletRequest request, ModelMap model) {
@@ -36,10 +35,9 @@ public class ImportController {
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			try {
 
-				DefaultHandler dh = new XmlHandler();
 				SAXParser saxParser = factory.newSAXParser();
-				saxParser.parse(is, dh);
-				dh.toString();
+				saxParser.parse(is, handler);
+				handler.toString();
 
 			} catch (Throwable t) {
 
@@ -54,5 +52,19 @@ public class ImportController {
 	@RequestMapping(value = "/xml", method = RequestMethod.GET)
 	public ModelAndView importer() {
 		return new ModelAndView("importer/xml");
+	}
+
+	/**
+	 * @return the handler
+	 */
+	public DefaultHandler getHandler() {
+		return handler;
+	}
+
+	/**
+	 * @param handler the handler to set
+	 */
+	public void setHandler(DefaultHandler handler) {
+		this.handler = handler;
 	}
 }
